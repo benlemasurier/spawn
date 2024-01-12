@@ -1,0 +1,47 @@
+[user]
+    name = Ben LeMasurier
+    email = b@crypt.ly
+    signingkey = E8E74189
+
+[includeIf "gitdir:~/code/lambda/"]
+    path = ~/code/lambda/.gitconfig
+
+[alias]
+    co = checkout
+    br = branch
+    s = status
+    avs = commit -av -S
+    unmerged = branch --no-merged master
+
+[commit]
+    gpgSign = true
+
+[core]
+    editor = nvim
+    excludesFile = ~/.gitignore
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[push]
+    default = current
+
+[status]
+    showUntrackedFiles = all
+
+[pull]
+    rebase = false
+
+[rerere]
+    enabled = false
+    autoupdate = true
+
+[init]
+    defaultBranch = main
+
+[safe]
+    directory = /opt/esp-idf
+    directory = /opt/esp-idf/components
+    directory = /opt/esp-idf/components/openthread/openthread
