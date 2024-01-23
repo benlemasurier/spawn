@@ -40,7 +40,7 @@
   users.users.ben = {
     isNormalUser = true;
     description = "ben";
-    extraGroups = ["audio" "docker" "networkmanager" "wheel"];
+    extraGroups = ["audio" "dialout" "docker" "networkmanager" "wheel"];
   };
 
   # Allow unfree packages
