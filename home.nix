@@ -111,10 +111,10 @@
     x11.enable = true;
   };
 
-  home.file.".password-store" = {
-    source = ./files/password-store;
-    recursive = true;
-  };
+  #home.file.".password-store" = {
+  #  source = ./files/password-store;
+  #  recursive = true;
+  #};
 
   home.file.".config/alacritty/alacritty.toml" = {
     source = ./files/alacritty/alacritty.toml;
