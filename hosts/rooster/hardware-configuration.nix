@@ -19,10 +19,16 @@
     };
 
   boot.initrd.luks.devices."luks-1b6afcf8-c239-4018-948a-3d35403ed2ee".device = "/dev/disk/by-uuid/1b6afcf8-c239-4018-948a-3d35403ed2ee";
+  boot.initrd.luks.devices."luks-2399bf84-a6f8-4f0b-bbcc-663fb41c5a99".device = "/dev/disk/by-uuid/2399bf84-a6f8-4f0b-bbcc-663fb41c5a99";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/A904-A81E";
       fsType = "vfat";
+    };
+
+  fileSystems."/backup" =
+    { device = "/dev/disk/by-uuid/009d3e13-3e34-4ea1-8607-a2aaf3fe761e";
+      fsType = "ext4";
     };
 
   swapDevices =
