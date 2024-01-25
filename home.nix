@@ -93,6 +93,7 @@
     ttf_bitstream_vera
     unzip
     vanilla-dmz
+    vlc
     zathura
 
     # fonts
