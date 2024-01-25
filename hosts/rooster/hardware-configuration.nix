@@ -26,7 +26,7 @@
       fsType = "vfat";
     };
 
-  fileSystems."/backup" =
+  fileSystems."/storage" =
     { device = "/dev/disk/by-uuid/009d3e13-3e34-4ea1-8607-a2aaf3fe761e";
       fsType = "ext4";
     };

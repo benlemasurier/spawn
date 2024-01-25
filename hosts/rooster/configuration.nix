@@ -63,11 +63,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    age
     git
     gnupg
     lsof
     pulseaudio-ctl
     silver-searcher
+    sops
     twingate
     wget
     xorg.xinit
@@ -184,4 +186,24 @@
       fi
     fi
    '';
+
+  # sops-nix configured via this README:
+  # - https://github.com/Mic92/sops-nix/blob/4606d9b1595e42ffd9b75b9e69667708c70b1d68/README.md
+  sops.defaultSopsFile = ../../secrets/sops.yaml;
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
+  sops.age.generateKey = true;
+  sops.secrets."duplicity/env" = {};
+
+  # backups
+  # NOTE: this wouldn't work until a full backup was first completed.
+  # `systemctl cat duplicity.service`, execute ExecStart cmd, replacing `incr` with `full`.
+  # be sure to set env (password) from EnvironmentFile
+  services.duplicity = {
+    enable = true;
+    frequency = "daily";
+    root = "/home/ben";
+    targetUrl = "file:///storage/duplicity-backups";
+    secretFile = config.sops.secrets."duplicity/env".path;
+  };
 }
