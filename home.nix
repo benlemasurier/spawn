@@ -18,8 +18,8 @@
     historyControl = [ "ignoredups" "ignorespace" ];
 
     shellAliases = {
-      bc = "bc -l"; # always load math lib for decimals
-      cat = "bat -pp";
+      bc = "bc -l";    # always load math lib for decimals
+      cat = "bat -pp"; # plain, disable paging
       tf = "terraform";
       ls = "eza";
       mutt = "neomutt";
@@ -111,11 +111,6 @@
     package = pkgs.vanilla-dmz;
     x11.enable = true;
   };
-
-  #home.file.".password-store" = {
-  #  source = ./files/password-store;
-  #  recursive = true;
-  #};
 
   home.file.".config/alacritty/alacritty.toml" = {
     source = ./files/alacritty/alacritty.toml;
