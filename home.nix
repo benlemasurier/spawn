@@ -58,12 +58,15 @@
     ansible
     ansible-lint
     awscli2
+    bandwhich
     bc
     clang-tools
     esphome
     eza
     feh
     file
+    freecad
+    gdu
     ghc
     gnumake
     gnupg
