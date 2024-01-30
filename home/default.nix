@@ -92,6 +92,7 @@
     python311Packages.pip
     python3Full
     rustup
+    signal-desktop
     terraform
     tree-sitter
     ttf_bitstream_vera
