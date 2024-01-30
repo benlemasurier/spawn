@@ -14,6 +14,7 @@
   boot.initrd.luks.devices."luks-c50a894f-4c4e-4966-9ea5-62270bb86c5f".device = "/dev/disk/by-uuid/c50a894f-4c4e-4966-9ea5-62270bb86c5f";
   networking.hostName = "rooster";
   networking.enableIPv6 = false;
+  networking.timeServers = [ "192.168.1.4" ];
   # networking.wireless.enable = true;  # wireless via wpa_supplicant.
 
   networking.networkmanager.enable = true;
