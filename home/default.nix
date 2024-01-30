@@ -97,6 +97,7 @@
     unzip
     vanilla-dmz
     vlc
+    xclip
     zathura
 
     # fonts
