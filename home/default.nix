@@ -8,6 +8,7 @@
     ./programs/polybar.nix
     ./programs/neovim.nix
     ./programs/rofi
+    ./xdg
   ];
 
   programs.bash = {
