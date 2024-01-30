@@ -31,7 +31,7 @@
 	    home-manager.useUserPackages = true;
 	    home-manager.extraSpecialArgs = { inherit inputs; };
 
-	    home-manager.users.ben = import ./home.nix;
+	    home-manager.users.ben = import ./home;
           }
 	];
       };
