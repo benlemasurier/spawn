@@ -62,6 +62,7 @@
     bandwhich
     bc
     clang-tools
+    dig
     esphome
     eza
     feh
