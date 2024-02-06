@@ -80,8 +80,7 @@
   services.autorandr.enable = true;
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
     videoDrivers = ["nvidia"];
 
     displayManager = {
