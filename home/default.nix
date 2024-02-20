@@ -73,6 +73,9 @@
     gnumake
     gnupg
     go
+    kicad
+    kubectl
+    kubernetes-helm
     htop
     isort
     jq
