@@ -22,11 +22,14 @@ scratchpads = [
         (title =? "scratchpad") defaultFloating
     ]
 
+myManageHook :: ManageHook
 myManageHook = composeAll
     [ resource  =? "desktop_window" --> doIgnore
-    , className =? "Gimp"           --> doFloat
-    , className =? "steam"          --> doFullFloat
-    , isFullscreen --> doFullFloat]
+    , className =? "gimp"           --> doFloat
+    , className =? "kicad"          --> doFloat
+    , isDialog			    --> doFloat
+    , isFullscreen		    --> doFullFloat
+    ]
 
 mySpacing = spacingRaw True              -- only for >1 window
                        (Border 0 0 0 0)  -- screen border: top, bottom, right, left

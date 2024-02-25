@@ -101,6 +101,7 @@
     tree-sitter
     ttf_bitstream_vera
     unzip
+    vagrant
     vanilla-dmz
     vlc
     xclip
