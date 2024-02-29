@@ -117,9 +117,10 @@
   xresources.extraConfig = builtins.readFile ./files/Xresources;
 
   home.pointerCursor = {
-    name = "DMZ (Black)";
+    name = "Vanilla-DMZ-AA";
     size = 24;
     package = pkgs.vanilla-dmz;
+    gtk.enable = true;
     x11.enable = true;
   };
 
