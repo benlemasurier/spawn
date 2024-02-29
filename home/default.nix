@@ -21,6 +21,7 @@
     shellAliases = {
       bc = "bc -l";    # always load math lib for decimals
       cat = "bat -pp"; # plain, disable paging
+      k = "kubectl";
       tf = "terraform";
       ls = "eza";
       mutt = "neomutt";
@@ -97,12 +98,14 @@
     python3Full
     rustup
     signal-desktop
+    shellcheck
     terraform
     tree-sitter
     ttf_bitstream_vera
     unzip
     vagrant
     vanilla-dmz
+    vendir
     vlc
     xclip
     zathura
