@@ -10,6 +10,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = ["ipv6.disable=1"];
 
   boot.initrd.luks.devices."luks-c50a894f-4c4e-4966-9ea5-62270bb86c5f".device = "/dev/disk/by-uuid/c50a894f-4c4e-4966-9ea5-62270bb86c5f";
   networking.hostName = "rooster";
@@ -41,7 +42,7 @@
   users.users.ben = {
     isNormalUser = true;
     description = "ben";
-    extraGroups = ["audio" "dialout" "docker" "networkmanager" "wheel"];
+    extraGroups = ["audio" "dialout" "docker" "libvirtd" "networkmanager" "wheel"];
   };
 
   # Allow unfree packages
@@ -128,6 +129,15 @@
 
   services.openssh.enable = true;
   virtualisation.docker.enable = true;
+
+  # https://nixos.wiki/wiki/Libvirt
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+    };
+  };
 
   # Enable OpenGL
   hardware.opengl = {
