@@ -4,6 +4,7 @@
   home.stateVersion = "23.05";
 
   imports = [
+    ./programs/bat.nix
     ./programs/dunst.nix
     ./programs/polybar.nix
     ./programs/neovim.nix
@@ -24,6 +25,7 @@
       k = "kubectl";
       tf = "terraform";
       ls = "eza";
+      man = "batman";
       mutt = "neomutt";
     };
   };
@@ -36,14 +38,6 @@
   programs.eza = {
     enable = true;
     enableAliases = true;
-  };
-
-  programs.bat = {
-    enable = true;
-    config = {
-      theme = "gruvbox-dark";
-      style = "plain";
-    };
   };
 
   programs.firefox = {
