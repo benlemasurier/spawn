@@ -69,6 +69,7 @@
 
     plugins = {
       floaterm.enable = true;
+      lsp-format.enable = true;
 
       lualine = {
         enable = true;
@@ -96,7 +97,7 @@
             gopls.enable = true;
             html.enable = true;
             jsonls.enable = true;
-            rnix-lsp.enable = true;
+            nil_ls.enable = true;
             ruff-lsp.enable = true;
             terraformls.enable = true;
             yamlls.enable = true;
@@ -107,11 +108,88 @@
               installRustc = false;
             };
         };
+
+        keymaps.lspBuf = {
+          "K" = "hover";
+          "gD" = "declaration";
+          "gR" = "references";
+          "gd" = "definition";
+          "gi" = "implementation";
+          "gr" = "rename";
+          "gt" = "type_definition";
+        };
+      };
+
+      none-ls = {
+        enable = true;
+        enableLspFormat = true;
+        sources = {
+          diagnostics = {
+            golangci_lint.enable = true;
+            statix.enable = true;
+          };
+
+          formatting = {
+            gofmt.enable = true;
+            gofumpt.enable = true;
+            goimports.enable = true;
+            nixfmt.enable = true;
+            markdownlint.enable = true;
+          };
+        };
       };
 
       # completion
-      nvim-cmp.enable = true;
       cmp-nvim-lsp.enable = true;
+      cmp-buffer.enable = true;
+      cmp-vsnip.enable = true;
+
+      cmp = {
+        enable = true;
+
+        settings = {
+          snippet.expand = ''
+            function(args)
+              vim.fn["vsnip#anonymous"](args.body)
+            end
+          '';
+
+          window = {
+            completion = {
+              winhighlight =
+                "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
+              scrollbar = true;
+              sidePadding = 0;
+              border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
+            };
+
+            documentation = {
+              border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
+              winhighlight =
+                "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
+            };
+          };
+
+          sources = [
+            { name = "nvim_lsp"; }
+            { name = "buffer"; }
+          ];
+
+          mapping = {
+            "<C-n>" = "cmp.mapping.select_next_item()";
+            "<C-p>" = "cmp.mapping.select_prev_item()";
+            "<C-j>" = "cmp.mapping.select_next_item()";
+            "<C-k>" = "cmp.mapping.select_prev_item()";
+            "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+            "<C-f>" = "cmp.mapping.scroll_docs(4)";
+            "<C-Space>" = "cmp.mapping.complete()";
+            "<C-e>" = "cmp.mapping.close()";
+            "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+            "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
+          };
+        };
+      };
     };
 
     files."ftplugin/c.lua".extraConfigLua = ''
@@ -240,6 +318,6 @@
       }
     ];
 
-    extraPlugins = with pkgs.vimPlugins; [ vimwiki ];
+    extraPlugins = with pkgs.vimPlugins; [ vim-vsnip vimwiki ];
   };
 }

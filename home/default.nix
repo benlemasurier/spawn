@@ -35,11 +35,6 @@
     enableBashIntegration = true;
   };
 
-  programs.eza = {
-    enable = true;
-    enableAliases = true;
-  };
-
   programs.firefox = {
     enable = true;
     package = pkgs.firefox.override {
@@ -68,6 +63,8 @@
     gnumake
     gnupg
     go
+    golangci-lint
+    golint
     kicad
     kubectl
     kubernetes-helm
@@ -83,7 +80,6 @@
     openfortivpn
     pass
     pavucontrol
-    pinentry-curses
     poetry
     polkit_gnome
     polybar-pulseaudio-control
@@ -148,7 +144,6 @@
     enable = true;
     defaultCacheTtl = 34560000;
     maxCacheTtl = 34560000;
-    pinentryFlavor = "curses";
   };
 
   services.redshift = {
