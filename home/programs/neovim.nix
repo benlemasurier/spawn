@@ -1,9 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-  ];
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
 
   programs.nixvim = {
     enable = true;
@@ -26,18 +24,18 @@
       undofile = true;
 
       # windows
-      title = true;         # set the window title to the current filename
-      updatetime = 300;     # CursorHold event timeout (ms)
-      winminheight = 0;     # minimum window height
-      signcolumn = ''yes''; # always reserve space for diagnostics
+      title = true; # set the window title to the current filename
+      updatetime = 300; # CursorHold event timeout (ms)
+      winminheight = 0; # minimum window height
+      signcolumn = "yes"; # always reserve space for diagnostics
 
       # scrolling
-      scrolloff = 8;      # minimum lines to keep above/below cursor
+      scrolloff = 8; # minimum lines to keep above/below cursor
       sidescrolloff = 15; # minimum columns to keep left/right of cursor
 
       # lines
       number = true; # show line numbers
-      wrap = false;  # don't wrap lines
+      wrap = false; # don't wrap lines
 
       # tabs
       softtabstop = 4;
@@ -53,16 +51,16 @@
 
       # listchars
       listchars = {
-        eol = "↵";     # end of line
-        nbsp = ".";    # non-breaking spaces
-        trail = "·";   # trailing spaces
-        tab = "  ";    # don't show tabs
+        eol = "↵"; # end of line
+        nbsp = "."; # non-breaking spaces
+        trail = "·"; # trailing spaces
+        tab = "  "; # don't show tabs
         extends = "…"; # line wrap
       };
 
       # searching
       ignorecase = true; # ignore case when searching
-      smartcase = true;  # unless query contains a capital
+      smartcase = true; # unless query contains a capital
     };
 
     colorschemes.gruvbox.enable = true;
@@ -82,6 +80,20 @@
         numhl = true;
       };
 
+      neorg = {
+        enable = true;
+        lazyLoading = true;
+        modules = {
+          "core.defaults".__empty = null;
+          "core.dirman".config = {
+            workspaces = { notes = "~/notes"; };
+            default_workspace = "notes";
+          };
+          "core.concealer".__empty = null;
+          "core.completion".config.engine = "nvim-cmp";
+        };
+      };
+
       treesitter = {
         enable = true;
         indent = true;
@@ -91,22 +103,22 @@
         enable = true;
 
         servers = {
-            ansiblels.enable = true;
-            bashls.enable = true;
-            dockerls.enable = true;
-            gopls.enable = true;
-            html.enable = true;
-            jsonls.enable = true;
-            nil_ls.enable = true;
-            ruff-lsp.enable = true;
-            terraformls.enable = true;
-            yamlls.enable = true;
+          ansiblels.enable = true;
+          bashls.enable = true;
+          dockerls.enable = true;
+          gopls.enable = true;
+          html.enable = true;
+          jsonls.enable = true;
+          nil_ls.enable = true;
+          ruff-lsp.enable = true;
+          terraformls.enable = true;
+          yamlls.enable = true;
 
-            rust-analyzer = {
-              enable = true;
-              installCargo = false;
-              installRustc = false;
-            };
+          rust-analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
         };
 
         keymaps.lspBuf = {
@@ -116,7 +128,7 @@
           "gd" = "definition";
           "gi" = "implementation";
           "gr" = "rename";
-          "gt" = "type_definition";
+          "gM" = "type_definition";
         };
       };
 
@@ -170,10 +182,7 @@
             };
           };
 
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "buffer"; }
-          ];
+          sources = [ { name = "nvim_lsp"; } { name = "buffer"; } ];
 
           mapping = {
             "<C-n>" = "cmp.mapping.select_next_item()";
@@ -185,8 +194,10 @@
             "<C-Space>" = "cmp.mapping.complete()";
             "<C-e>" = "cmp.mapping.close()";
             "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-            "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
+            "<S-Tab>" =
+              "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+            "<CR>" =
+              "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
           };
         };
       };
@@ -209,7 +220,7 @@
     files."ftplugin/c.lua".extraConfigLua = ''
       vim.opt.expandtab = true
     '';
-    
+
     files."ftplugin/css.lua".extraConfigLua = ''
       vim.opt.expandtab = true
       vim.opt.shiftwidth = 2
@@ -259,17 +270,13 @@
         action = ">gv";
         key = ">";
         mode = [ "v" ];
-        options = {
-          noremap = true;
-        };
+        options = { noremap = true; };
       }
       {
         action = "<gv";
         key = "<";
         mode = [ "v" ];
-        options = {
-          noremap = true;
-        };
+        options = { noremap = true; };
       }
 
       # split navigation (ctrl-j/k)
