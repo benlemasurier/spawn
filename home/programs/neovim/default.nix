@@ -1,7 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = [ ./completion.nix inputs.nixvim.homeManagerModules.nixvim ];
+  imports =
+    [ ./plugins ./completion.nix inputs.nixvim.homeManagerModules.nixvim ];
 
   programs.nixvim = {
     enable = true;
@@ -97,39 +98,6 @@
       treesitter = {
         enable = true;
         indent = true;
-      };
-
-      lsp = {
-        enable = true;
-
-        servers = {
-          ansiblels.enable = true;
-          bashls.enable = true;
-          dockerls.enable = true;
-          gopls.enable = true;
-          html.enable = true;
-          jsonls.enable = true;
-          nil_ls.enable = true;
-          ruff-lsp.enable = true;
-          terraformls.enable = true;
-          yamlls.enable = true;
-
-          rust-analyzer = {
-            enable = true;
-            installCargo = false;
-            installRustc = false;
-          };
-        };
-
-        keymaps.lspBuf = {
-          "K" = "hover";
-          "gD" = "declaration";
-          "gR" = "references";
-          "gd" = "definition";
-          "gi" = "implementation";
-          "gr" = "rename";
-          "gM" = "type_definition";
-        };
       };
 
       none-ls = {
