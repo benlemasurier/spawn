@@ -66,59 +66,6 @@
 
     colorschemes.gruvbox.enable = true;
 
-    plugins = {
-      lsp-format.enable = true;
-
-      lualine = {
-        enable = true;
-        iconsEnabled = false;
-        sections.lualine_x = [ "encoding" "filetype" ];
-      };
-
-      gitsigns = {
-        enable = true;
-        numhl = true;
-      };
-
-      neorg = {
-        enable = true;
-        lazyLoading = true;
-        modules = {
-          "core.defaults".__empty = null;
-          "core.dirman".config = {
-            workspaces = { notes = "~/notes"; };
-            default_workspace = "notes";
-          };
-          "core.concealer".__empty = null;
-          "core.completion".config.engine = "nvim-cmp";
-        };
-      };
-
-      treesitter = {
-        enable = true;
-        indent = true;
-      };
-
-      none-ls = {
-        enable = true;
-        enableLspFormat = true;
-        sources = {
-          diagnostics = {
-            golangci_lint.enable = true;
-            statix.enable = true;
-          };
-
-          formatting = {
-            gofmt.enable = true;
-            gofumpt.enable = true;
-            goimports.enable = true;
-            nixfmt.enable = true;
-            markdownlint.enable = true;
-          };
-        };
-      };
-    };
-
     files."ftplugin/c.lua".extraConfigLua = ''
       vim.opt.expandtab = true
     '';
