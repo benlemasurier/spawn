@@ -67,7 +67,6 @@
     colorschemes.gruvbox.enable = true;
 
     plugins = {
-      floaterm.enable = true;
       lsp-format.enable = true;
 
       lualine = {
@@ -219,26 +218,6 @@
         action = ":cclose<CR>:lclose<CR>";
         key = "<leader>c";
         mode = [ "n" ];
-      }
-
-      # toggle terminal with Ctrl-<space>
-      {
-        action = ":FloatermToggle<CR>";
-        key = "<C-space>";
-        mode = [ "n" ];
-        options = {
-          noremap = true;
-          silent = true;
-        };
-      }
-      {
-        action = "<C-\\><C-n>:FloatermToggle<CR>";
-        key = "<C-space>";
-        mode = [ "t" ];
-        options = {
-          noremap = true;
-          silent = true;
-        };
       }
     ];
 

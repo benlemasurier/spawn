@@ -1,1 +1,1 @@
-{ imports = [ ./lsp.nix ]; }
+{ imports = [ ./floaterm.nix ./lsp.nix ]; }
