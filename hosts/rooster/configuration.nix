@@ -166,10 +166,10 @@
     pulse.enable = true;
   };
 
-  services.k3s = {
-    enable = true;
-    role = "server";
-  };
+  #services.k3s = {
+  #  enable = true;
+  #  role = "server";
+  #};
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

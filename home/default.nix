@@ -7,7 +7,7 @@
     ./programs/bat.nix
     ./programs/dunst.nix
     ./programs/polybar.nix
-    ./programs/neovim.nix
+    ./programs/neovim
     ./programs/rofi
     ./xdg
   ];
@@ -20,7 +20,7 @@
     historyControl = [ "ignoredups" "ignorespace" ];
 
     shellAliases = {
-      bc = "bc -l";    # always load math lib for decimals
+      bc = "bc -l"; # always load math lib for decimals
       cat = "bat -pp"; # plain, disable paging
       k = "kubectl";
       tf = "terraform";
@@ -37,9 +37,7 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox.override {
-      cfg.speechSynthesisSupport = false;
-    };
+    package = pkgs.firefox.override { cfg.speechSynthesisSupport = false; };
   };
 
   home.packages = with pkgs; [
@@ -105,6 +103,9 @@
     font-awesome
     mononoki
     nerdfonts
+
+    natscli
+    nats-server
   ];
 
   xresources.extraConfig = builtins.readFile ./files/Xresources;
@@ -121,21 +122,17 @@
     source = ./files/alacritty/alacritty.toml;
   };
 
-  home.file.".gitconfig" = {
-    source = ./files/gitconfig;
-  };
+  home.file.".gitconfig" = { source = ./files/gitconfig; };
 
-  home.file."/code/lambda/.gitconfig" = {
-    source = ./files/gitconfig-work;
-  };
+  home.file."/code/lambda/.gitconfig" = { source = ./files/gitconfig-work; };
 
   xsession = {
     enable = true;
     windowManager = {
       xmonad = {
         enable = true;
-	enableContribAndExtras = true;
-	config = ./files/xmonad.hs;
+        enableContribAndExtras = true;
+        config = ./files/xmonad.hs;
       };
     };
   };
