@@ -5,7 +5,9 @@
     modules = {
       "core.defaults".__empty = null;
       "core.dirman".config = {
-        workspaces = { notes = "~/notes"; };
+        workspaces = {
+          notes = "~/notes";
+        };
         default_workspace = "notes";
       };
       "core.concealer".__empty = null;

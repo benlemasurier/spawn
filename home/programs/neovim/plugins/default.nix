@@ -1,11 +1,13 @@
 {
   imports = [
+    ./copilot-lua.nix
+    ./cursorline.nix
     ./gitsigns.nix
     ./floaterm.nix
     ./lsp.nix
     ./lualine.nix
     ./lsp-format.nix
-    ./neorg.nix
+    #./neorg.nix
     ./none-ls.nix
     ./treesitter.nix
   ];

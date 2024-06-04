@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, fetchFromGitHub, buildGoModule, ... }:
 
 {
   home.stateVersion = "23.05";
@@ -6,9 +6,12 @@
   imports = [
     ./programs/bat.nix
     ./programs/dunst.nix
-    ./programs/polybar.nix
+    ./programs/fonts.nix
+    ./programs/nats.nix
     ./programs/neovim
+    ./programs/polybar.nix
     ./programs/rofi
+    ./programs/tmux.nix
     ./xdg
   ];
 
@@ -28,6 +31,10 @@
       man = "batman";
       mutt = "neomutt";
     };
+
+    bashrcExtra = ''
+      eval "$(direnv hook bash)"
+    '';
   };
 
   programs.fzf = {
@@ -40,6 +47,20 @@
     package = pkgs.firefox.override { cfg.speechSynthesisSupport = false; };
   };
 
+  #nixpkgs.overlays = [
+  #  (final: prev: {
+  #    vault = final.buildGoModule rec {
+  #      version = "1.15.6";
+  #      src = fetchFromGitHub {
+  #        owner = "hashicorp";
+  #        repo = "vault";
+  #        rev = "v${version}";
+  #        hash = lib.fakeSha256;
+  #      };
+  #    };
+  #  })
+  #];
+
   home.packages = with pkgs; [
     _1password
     _1password-gui
@@ -51,11 +72,13 @@
     bc
     clang-tools
     dig
+    direnv
+    dive
     esphome
     eza
     feh
     file
-    freecad
+    gcc
     gdu
     ghc
     gnumake
@@ -63,22 +86,26 @@
     go
     golangci-lint
     golint
-    kicad
+    hadolint
     kubectl
     kubernetes-helm
     htop
     isort
     jq
+    k9s
     killall
     libnotify
     luarocks
     manix
     neomutt
+    nh
     nodejs
     openfortivpn
+    openssl
     pass
     pavucontrol
-    poetry
+    plantuml
+    #poetry
     polkit_gnome
     polybar-pulseaudio-control
     pyright
@@ -87,25 +114,18 @@
     rustup
     signal-desktop
     shellcheck
+    slack
     terraform
     tree-sitter
     ttf_bitstream_vera
     unzip
     vagrant
     vanilla-dmz
+    vault
     vendir
     vlc
     xclip
     zathura
-
-    # fonts
-    dejavu_fonts
-    font-awesome
-    mononoki
-    nerdfonts
-
-    natscli
-    nats-server
   ];
 
   xresources.extraConfig = builtins.readFile ./files/Xresources;

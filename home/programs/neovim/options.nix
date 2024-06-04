@@ -1,5 +1,5 @@
 { config, ... }: {
-  programs.nixvim.options = {
+  programs.nixvim.opts = {
     # files
     swapfile = false; # don't create swapfiles
     undodir = "${config.xdg.stateHome}/.vim/backups";

@@ -4,6 +4,7 @@
       cmp-nvim-lsp.enable = true;
       cmp-buffer.enable = true;
       cmp-vsnip.enable = true;
+      copilot-cmp.enable = true;
 
       cmp = {
         enable = true;
@@ -31,7 +32,11 @@
             };
           };
 
-          sources = [ { name = "nvim_lsp"; } { name = "buffer"; } ];
+          sources = [
+            { name = "copilot"; }
+            { name = "nvim_lsp"; }
+            { name = "buffer"; }
+          ];
 
           mapping = {
             "<C-n>" = "cmp.mapping.select_next_item()";

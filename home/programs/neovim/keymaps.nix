@@ -1,6 +1,9 @@
 { config, lib, ... }: {
   programs.nixvim = {
-    globals = { mapleader = ","; };
+    globals = {
+      mapleader = ",";
+      maplocalleader = ".";
+    };
 
     keymaps = let
       normal = lib.mapAttrsToList (key: action: {
