@@ -30,7 +30,7 @@
           gopls.enable = true;
           html.enable = true;
           jsonls.enable = true;
-          nil_ls.enable = true;
+          nil-ls.enable = true;
           ruff-lsp.enable = true;
           terraformls.enable = true;
           yamlls.enable = true;
@@ -46,10 +46,9 @@
 
     keymaps = [{
       options.desc = "Show diagnostic";
-      action = "function() vim.diagnostic.open_float() end";
+      action.__raw = "function() vim.diagnostic.open_float() end";
       key = "gl";
       mode = "n";
-      lua = true;
     }];
   };
 }
