@@ -68,7 +68,6 @@
     ansible
     ansible-lint
     awscli2
-    bandwhich
     bc
     clang-tools
     dig
@@ -87,13 +86,13 @@
     golangci-lint
     golint
     hadolint
-    kubectl
-    kubernetes-helm
     htop
     isort
     jq
     k9s
     killall
+    kubectl
+    kubernetes-helm
     libnotify
     luarocks
     manix
@@ -105,15 +104,14 @@
     pass
     pavucontrol
     plantuml
-    #poetry
     polkit_gnome
     polybar-pulseaudio-control
     pyright
     python311Packages.pip
     python3Full
     rustup
-    signal-desktop
     shellcheck
+    signal-desktop
     slack
     terraform
     tree-sitter

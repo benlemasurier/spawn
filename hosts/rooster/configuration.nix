@@ -134,11 +134,9 @@
     };
   };
 
-  # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   hardware.nvidia = {
@@ -153,17 +151,11 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
-  };
-
-  services.k3s = {
-    enable = true;
-    role = "server";
   };
 
   # Open ports in the firewall.

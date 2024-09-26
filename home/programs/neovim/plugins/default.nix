@@ -1,6 +1,5 @@
 {
   imports = [
-    ./copilot-lua.nix
     ./cursorline.nix
     ./gitsigns.nix
     ./floaterm.nix
