@@ -85,6 +85,7 @@
     go
     golangci-lint
     golint
+    graphviz
     hadolint
     htop
     isort
@@ -120,6 +121,7 @@
     vagrant
     vanilla-dmz
     vault
+    vegeta
     vendir
     vlc
     xclip
