@@ -92,6 +92,7 @@
     jq
     k9s
     killall
+    kind
     kubectl
     kubernetes-helm
     libnotify
