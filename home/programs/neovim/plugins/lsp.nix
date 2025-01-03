@@ -28,14 +28,15 @@
           bashls.enable = true;
           dockerls.enable = true;
           gopls.enable = true;
+          helm_ls.enable = true;
           html.enable = true;
           jsonls.enable = true;
-          nil-ls.enable = true;
-          ruff-lsp.enable = true;
+          nil_ls.enable = true;
+          ruff_lsp.enable = true;
           terraformls.enable = true;
           yamlls.enable = true;
 
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             installCargo = false;
             installRustc = false;

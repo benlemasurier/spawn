@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ dejavu_fonts font-awesome mononoki nerdfonts ];
+  home.packages = with pkgs; [ dejavu_fonts font-awesome mononoki ];
 }

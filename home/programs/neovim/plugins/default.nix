@@ -2,6 +2,7 @@
   imports = [
     ./cursorline.nix
     ./gitsigns.nix
+    ./helm.nix
     ./floaterm.nix
     ./lsp.nix
     ./lualine.nix

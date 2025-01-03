@@ -62,6 +62,12 @@
     withNodeJs = true;
   };
 
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "ben" ];
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -161,9 +167,9 @@
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = toString [
-      "--docker"
-    ];
+    # extraFlags = toString [
+    #   "--docker"
+    # ];
   };
 
   # Open ports in the firewall.

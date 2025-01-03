@@ -30,6 +30,7 @@
       ls = "eza";
       man = "batman";
       mutt = "neomutt";
+      pbcopy = "xclip -selection clipboard";
     };
 
     bashrcExtra = ''
@@ -62,8 +63,6 @@
   #];
 
   home.packages = with pkgs; [
-    _1password
-    _1password-gui
     alacritty
     ansible
     ansible-lint
@@ -82,9 +81,23 @@
     ghc
     gnumake
     gnupg
+
     go
     golangci-lint
     golint
+    richgo
+    gotools
+    gotestsum
+    impl
+    mockgen
+    reftools
+    gotests
+    iferr
+    govulncheck
+    gomodifytags
+    delve
+    golines
+
     graphviz
     hadolint
     htop
@@ -95,9 +108,11 @@
     kind
     kubectl
     kubernetes-helm
+    libusb1
     libnotify
     luarocks
     manix
+    moonlight-qt
     neomutt
     nh
     nodejs
@@ -105,6 +120,7 @@
     openssl
     pass
     pavucontrol
+    pkg-config
     plantuml
     polkit_gnome
     polybar-pulseaudio-control
@@ -119,7 +135,6 @@
     tree-sitter
     ttf_bitstream_vera
     unzip
-    vagrant
     vanilla-dmz
     vault
     vegeta
