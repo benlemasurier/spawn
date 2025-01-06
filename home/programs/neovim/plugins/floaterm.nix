@@ -2,7 +2,9 @@
   programs.nixvim.plugins.floaterm = {
     enable = true;
 
-    title = "";
-    keymaps.toggle = "<C-space>";
+    settings = {
+      title = "";
+      keymaps.toggle = "<C-space>";
+    };
   };
 }
