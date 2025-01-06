@@ -33,7 +33,8 @@
         ">" = ">gv";
         "<" = "<gv";
       };
-    in config.nixvim.helpers.keymaps.mkKeymaps { options.silent = true; }
+    in config.lib.nixvim.keymaps.mkKeymaps { options.silent = true; }
+
     (normal ++ visual);
   };
 }
