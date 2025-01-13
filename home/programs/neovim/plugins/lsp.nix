@@ -32,7 +32,7 @@
           html.enable = true;
           jsonls.enable = true;
           nil_ls.enable = true;
-          ruff_lsp.enable = true;
+          ruff.enable = true;
           terraformls.enable = true;
           yamlls.enable = true;
 
