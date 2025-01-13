@@ -4,6 +4,7 @@
   home.stateVersion = "23.05";
 
   imports = [
+    ./accounts.nix
     ./programs/bat.nix
     ./programs/dunst.nix
     ./programs/fonts.nix
@@ -30,7 +31,6 @@
       tf = "terraform";
       ls = "eza";
       man = "batman";
-      mutt = "neomutt";
       pbcopy = "xclip -selection clipboard";
     };
 
@@ -101,6 +101,7 @@
 
     graphviz
     hadolint
+    himalaya
     htop
     isort
     jq
@@ -114,7 +115,7 @@
     luarocks
     manix
     moonlight-qt
-    neomutt
+    msmtp
     nh
     nodejs
     openfortivpn
