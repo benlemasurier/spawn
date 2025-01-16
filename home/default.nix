@@ -9,6 +9,7 @@
     ./programs/dunst.nix
     ./programs/fonts.nix
     ./programs/ghostty.nix
+    ./programs/khal.nix
     ./programs/nats.nix
     ./programs/neovim
     ./programs/polybar.nix
