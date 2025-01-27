@@ -70,6 +70,7 @@
     ansible-lint
     awscli2
     bc
+    check-jsonschema
     clang-tools
     dig
     direnv
