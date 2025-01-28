@@ -70,6 +70,7 @@
     ansible-lint
     awscli2
     bc
+    cc65
     check-jsonschema
     clang-tools
     dig
