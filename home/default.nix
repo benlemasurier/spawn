@@ -146,7 +146,7 @@
     vendir
     vlc
     xclip
-    yq
+    yq-go
     zathura
   ];
 
