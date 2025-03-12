@@ -2,7 +2,9 @@
   programs.nixvim.plugins.cursorline = {
     enable = true;
 
-    cursorline.enable = false;
-    cursorword.enable = true;
+    settings = {
+      cursorline.enable = false;
+      cursorword.enable = true;
+    };
   };
 }

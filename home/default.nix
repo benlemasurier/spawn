@@ -104,6 +104,7 @@
 
     graphviz
     hadolint
+    higan
     himalaya
     htop
     isort
