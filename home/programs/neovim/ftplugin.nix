@@ -26,6 +26,7 @@
     "ftplugin/json.lua".extraConfigLua = ''
       vim.opt.expandtab = true
       vim.opt.tabstop = 2
+      vim.opt.shiftwidth = 2
     '';
 
     "ftplugin/nix.lua".extraConfigLua = ''
