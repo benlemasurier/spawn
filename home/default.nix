@@ -86,21 +86,24 @@
     gnumake
     gnupg
 
+    # golang
+    delve
     go
+    go-critic
     golangci-lint
+    golines
     golint
-    richgo
-    gotools
+    gomodifytags
+    gotests
     gotestsum
+    gotools
+    govulncheck
+    iferr
     impl
     mockgen
     reftools
-    gotests
-    iferr
-    govulncheck
-    gomodifytags
-    delve
-    golines
+    revive
+    richgo
 
     graphviz
     hadolint
