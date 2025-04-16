@@ -138,7 +138,7 @@
     python3Full
     rustup
     shellcheck
-    signal-desktop
+    signal-desktop-source
     slack
     terraform
     tree-sitter
