@@ -145,7 +145,6 @@
     ttf_bitstream_vera
     unzip
     vanilla-dmz
-    vault
     vegeta
     vendir
     vlc
