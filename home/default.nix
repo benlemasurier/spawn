@@ -116,6 +116,7 @@
     killall
     kind
     kubectl
+    kubelogin-oidc
     kubernetes-helm
     libusb1
     libnotify
