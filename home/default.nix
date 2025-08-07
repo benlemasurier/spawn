@@ -106,6 +106,9 @@
     richgo
 
     graphviz
+    (pkgs.go-migrate.overrideAttrs (oldAttrs: {
+      tags = [ "postgres" ];
+    }))
     hadolint
     higan
     himalaya
@@ -134,12 +137,13 @@
     plantuml
     polkit_gnome
     polybar-pulseaudio-control
+    postgresql
     pyright
     python311Packages.pip
     python3Full
     rustup
     shellcheck
-    signal-desktop-source
+    signal-desktop
     slack
     terraform
     tree-sitter
