@@ -29,7 +29,6 @@
           ansiblels.enable = true;
           bashls.enable = true;
           dockerls.enable = true;
-          gopls.enable = true;
           helm_ls.enable = true;
           html.enable = true;
           jsonls.enable = true;
@@ -37,6 +36,14 @@
           ruff.enable = true;
           terraformls.enable = true;
           yamlls.enable = true;
+
+          gopls = {
+            enable = true;
+
+            settings = {
+              gofumpt = true;
+            };
+          };
 
           rust_analyzer = {
             enable = true;
