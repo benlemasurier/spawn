@@ -1,0 +1,19 @@
+set confirm off
+set verbose off
+set history filename ~/.gdb_history
+set history save
+set print pretty on
+
+# don't truncate when printing
+set print elements 0
+
+# These make gdb never pause in its output
+#set height 0
+#set width 0
+
+# log everything
+#set logging enabled
+set trace-commands on
+
+# kernel dev
+add-auto-load-safe-path ~/code/kernel-dev/linux/scripts/gdb/vmlinux-gdb.py

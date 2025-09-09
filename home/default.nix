@@ -69,10 +69,12 @@
     ansible
     ansible-lint
     awscli2
+    bison
     bc
     cc65
     check-jsonschema
     clang-tools
+    cscope
     dig
     direnv
     dive
@@ -81,6 +83,8 @@
     feh
     file
     gcc
+    flex
+    gdb
     gdu
     ghc
     gnumake
@@ -106,9 +110,7 @@
     richgo
 
     graphviz
-    (pkgs.go-migrate.overrideAttrs (oldAttrs: {
-      tags = [ "postgres" ];
-    }))
+    (pkgs.go-migrate.overrideAttrs (oldAttrs: { tags = [ "postgres" ]; }))
     hadolint
     higan
     himalaya
@@ -127,6 +129,8 @@
     manix
     moonlight-qt
     msmtp
+    ncurses
+    ncurses.dev
     nh
     nodejs
     openfortivpn
@@ -149,6 +153,7 @@
     tree-sitter
     ttf_bitstream_vera
     unzip
+    universal-ctags
     vanilla-dmz
     vegeta
     vendir
@@ -173,8 +178,8 @@
   };
 
   home.file.".gitconfig" = { source = ./files/gitconfig; };
-
   home.file."/code/lambda/.gitconfig" = { source = ./files/gitconfig-work; };
+  home.file.".gdbinit" = { source = ./files/gdbinit; };
 
   xsession = {
     enable = true;

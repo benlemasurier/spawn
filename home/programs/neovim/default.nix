@@ -7,7 +7,7 @@
     ./keymaps.nix
     ./options.nix
     ./plugins
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
   ];
 
   programs.nixvim = {
