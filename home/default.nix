@@ -32,6 +32,7 @@
       tf = "terraform";
       ls = "eza";
       man = "batman";
+      mk = "minikube kubectl --";
       pbcopy = "xclip -selection clipboard";
     };
 
@@ -71,6 +72,7 @@
     awscli2
     bison
     bc
+    buildkite-cli
     cc65
     check-jsonschema
     clang-tools
@@ -115,18 +117,20 @@
     higan
     himalaya
     htop
+    hurl
     isort
     jq
     k9s
     killall
-    kind
     kubectl
     kubelogin-oidc
     kubernetes-helm
+    kubevirt
     libusb1
     libnotify
     luarocks
     manix
+    minikube
     moonlight-qt
     msmtp
     ncurses
@@ -145,6 +149,7 @@
     pyright
     python311Packages.pip
     python3Full
+    quilt
     rustup
     shellcheck
     signal-desktop
@@ -180,6 +185,7 @@
   home.file.".gitconfig" = { source = ./files/gitconfig; };
   home.file."/code/lambda/.gitconfig" = { source = ./files/gitconfig-work; };
   home.file.".gdbinit" = { source = ./files/gdbinit; };
+  home.file.".quiltrc" = { source = ./files/quiltrc; };
 
   xsession = {
     enable = true;

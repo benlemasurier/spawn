@@ -164,13 +164,13 @@
     pulse.enable = true;
   };
 
-  services.k3s = {
-    enable = true;
-    role = "server";
-    # extraFlags = toString [
-    #   "--docker"
-    # ];
-  };
+  #services.k3s = {
+  #   enable = true;
+  #    role = "server";
+  #    # extraFlags = toString [
+  #    #   "--docker"
+  #    # ];
+  #  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -27,7 +27,6 @@
 
     extraPlugins = with pkgs.vimPlugins; [
       vim-vsnip
-      vimwiki
       (himalaya-vim.overrideAttrs (old: {
         src = pkgs.fetchFromGitHub {
           owner = "pimalaya";

@@ -1,14 +1,14 @@
 {
   imports = [
     ./cursorline.nix
+    ./floaterm.nix
     ./gitsigns.nix
     ./helm.nix
-    ./floaterm.nix
+    ./lsp-format.nix
     ./lsp.nix
     ./lualine.nix
-    ./lsp-format.nix
-    #./neorg.nix
     ./none-ls.nix
     ./treesitter.nix
+    ./vimwiki.nix
   ];
 }

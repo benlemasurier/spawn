@@ -22,6 +22,8 @@
             "gi" = "implementation";
             "gr" = "rename";
             "gM" = "type_definition";
+            "<leader>ca" = "code_action";
+            "<leader>f" = "format";
           };
         };
 
@@ -37,12 +39,24 @@
           terraformls.enable = true;
           yamlls.enable = true;
 
+          pyright = {
+            enable = true;
+            settings = {
+              python = {
+                analysis = {
+                  typeCheckingMode = "basic";
+                  autoSearchPaths = true;
+                  useLibraryCodeForTypes = true;
+                  autoImportCompletions = true;
+                };
+              };
+            };
+          };
+
           gopls = {
             enable = true;
 
-            settings = {
-              gofumpt = true;
-            };
+            settings = { gofumpt = true; };
           };
 
           rust_analyzer = {

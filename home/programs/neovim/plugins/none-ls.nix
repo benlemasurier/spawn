@@ -9,12 +9,16 @@
       };
 
       formatting = {
+        black.enable = true;
+        isort.enable = true;
         gofmt.enable = true;
         gofumpt.enable = true;
         goimports.enable = true;
         nixfmt.enable = true;
         markdownlint.enable = true;
       };
+
+      code_actions = { refactoring.enable = true; };
     };
   };
 }
