@@ -1,7 +1,9 @@
 {
   programs.nixvim.files = {
     "ftplugin/c.lua".extraConfigLua = ''
-      vim.opt.expandtab = true
+      vim.opt.expandtab = false
+      vim.opt.smartindent = true;
+      vim.opt.autoindent = true;
     '';
 
     "ftplugin/css.lua".extraConfigLua = ''

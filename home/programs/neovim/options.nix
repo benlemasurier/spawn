@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs.nixvim.opts = {
     # files
     swapfile = false; # don't create swapfiles

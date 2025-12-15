@@ -28,8 +28,8 @@
         };
 
         servers = {
-          ansiblels.enable = true;
           bashls.enable = true;
+          clangd.enable = true;
           dockerls.enable = true;
           helm_ls.enable = true;
           html.enable = true;
@@ -56,7 +56,9 @@
           gopls = {
             enable = true;
 
-            settings = { gofumpt = true; };
+            settings = {
+              gofumpt = true;
+            };
           };
 
           rust_analyzer = {
@@ -68,11 +70,13 @@
       };
     };
 
-    keymaps = [{
-      options.desc = "Show diagnostic";
-      action.__raw = "function() vim.diagnostic.open_float() end";
-      key = "gl";
-      mode = "n";
-    }];
+    keymaps = [
+      {
+        options.desc = "Show diagnostic";
+        action.__raw = "function() vim.diagnostic.open_float() end";
+        key = "gl";
+        mode = "n";
+      }
+    ];
   };
 }

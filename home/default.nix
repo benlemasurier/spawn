@@ -1,4 +1,11 @@
-{ config, pkgs, lib, fetchFromGitHub, buildGoModule, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  fetchFromGitHub,
+  buildGoModule,
+  ...
+}:
 
 {
   home.stateVersion = "23.05";
@@ -23,7 +30,10 @@
     enableCompletion = true;
     historySize = -1;
     historyFileSize = -1;
-    historyControl = [ "ignoredups" "ignorespace" ];
+    historyControl = [
+      "ignoredups"
+      "ignorespace"
+    ];
 
     shellAliases = {
       bc = "bc -l"; # always load math lib for decimals
@@ -69,6 +79,7 @@
     alacritty
     ansible
     ansible-lint
+    asdbctl
     awscli2
     bison
     bc
@@ -112,11 +123,14 @@
     richgo
 
     graphviz
-    (pkgs.go-migrate.overrideAttrs (oldAttrs: { tags = [ "postgres" ]; }))
+    (pkgs.go-migrate.overrideAttrs (oldAttrs: {
+      tags = [ "postgres" ];
+    }))
     hadolint
     higan
     himalaya
     htop
+    httpie
     hurl
     isort
     jq
@@ -126,6 +140,7 @@
     kubelogin-oidc
     kubernetes-helm
     kubevirt
+    libx11
     libusb1
     libnotify
     luarocks
@@ -148,7 +163,7 @@
     postgresql
     pyright
     python311Packages.pip
-    python3Full
+    python3
     quilt
     rustup
     shellcheck
@@ -182,10 +197,18 @@
     source = ./files/alacritty/alacritty.toml;
   };
 
-  home.file.".gitconfig" = { source = ./files/gitconfig; };
-  home.file."/code/lambda/.gitconfig" = { source = ./files/gitconfig-work; };
-  home.file.".gdbinit" = { source = ./files/gdbinit; };
-  home.file.".quiltrc" = { source = ./files/quiltrc; };
+  home.file.".gitconfig" = {
+    source = ./files/gitconfig;
+  };
+  home.file."/code/lambda/.gitconfig" = {
+    source = ./files/gitconfig-work;
+  };
+  home.file.".gdbinit" = {
+    source = ./files/gdbinit;
+  };
+  home.file.".quiltrc" = {
+    source = ./files/quiltrc;
+  };
 
   xsession = {
     enable = true;

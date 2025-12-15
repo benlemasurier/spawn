@@ -1,4 +1,10 @@
-{ nixpkgs, config, pkgs, ... }: {
+{
+  nixpkgs,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
@@ -15,7 +21,9 @@
   networking.nameservers = [ "192.168.1.4" ];
   services.resolved.enable = true;
 
-  services.mullvad-vpn = { enable = true; };
+  services.mullvad-vpn = {
+    enable = true;
+  };
 
   networking.networkmanager.enable = true;
 
@@ -34,15 +42,24 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   security.sudo.wheelNeedsPassword = false;
 
   users.users.ben = {
     isNormalUser = true;
     description = "ben";
-    extraGroups =
-      [ "audio" "dialout" "docker" "libvirtd" "networkmanager" "wheel" ];
+    extraGroups = [
+      "audio"
+      "dialout"
+      "docker"
+      "libvirtd"
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   # Allow unfree packages
@@ -91,19 +108,25 @@
     videoDrivers = [ "nvidia" ];
 
     displayManager = {
-      session = [{
-        manage = "desktop";
-        name = "default";
-        start = "exec xmonad";
-      }];
+      session = [
+        {
+          manage = "desktop";
+          name = "default";
+          start = "exec xmonad";
+        }
+      ];
 
       lightdm = {
         enable = true;
-        greeters.slick = { enable = true; };
+        greeters.slick = {
+          enable = true;
+        };
       };
     };
 
-    desktopManager = { wallpaper.mode = "fill"; };
+    desktopManager = {
+      wallpaper.mode = "fill";
+    };
 
     windowManager.xmonad = {
       enable = true;
@@ -135,7 +158,8 @@
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
-      package = pkgs.qemu_kvm;
+      # package = pkgs.qemu_kvm;
+      package = pkgs.qemu_full;
       runAsRoot = true;
     };
   };
