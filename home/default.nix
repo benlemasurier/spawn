@@ -136,10 +136,12 @@
     jq
     k9s
     killall
+    kind
     kubectl
     kubelogin-oidc
     kubernetes-helm
     kubevirt
+    kustomize
     libx11
     libusb1
     libnotify
