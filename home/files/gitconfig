@@ -45,3 +45,6 @@
     directory = /opt/esp-idf
     directory = /opt/esp-idf/components
     directory = /opt/esp-idf/components/openthread/openthread
+
+[url "git@github.com:lambdal/"]
+    insteadOf = https://github.com/lambdal/
