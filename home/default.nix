@@ -117,6 +117,7 @@
     govulncheck
     iferr
     impl
+    ipmitool
     mockgen
     reftools
     revive
