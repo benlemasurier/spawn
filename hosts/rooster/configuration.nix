@@ -97,7 +97,7 @@
     sops
     twingate
     wget
-    xorg.xinit
+    xinit
   ];
 
   # x11
