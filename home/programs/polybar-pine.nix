@@ -40,6 +40,7 @@
         font-1 = "Bitstream Vera Sans Mono:size=14:heavy:fontformat=truetype;";
         font-2 = "DejaVu Sans Mono:size=14:heavy:fontformat=truetype;3";
         font-3 = "Font Awesome 6 Free:size=20:fontformat=truetype;5";
+        font-4 = "Symbols Nerd Font Mono:size=14;5";
         modules-left = "ewmh xwindow";
         modules-center = "";
         modules-right = "pulseaudio-control filesystem network battery tray date";
@@ -78,6 +79,36 @@
         full-at = 99;
         battery = "BAT0";
         adapter = "AC";
+        poll-interval = 5;
+
+        format-charging = "<animation-charging>";
+        format-discharging = "<ramp-capacity>";
+        format-full = "󰁹";
+
+        ramp-capacity-0 = "󰂎";
+        ramp-capacity-0-foreground = "\${colors.alert}";
+        ramp-capacity-1 = "󰁺";
+        ramp-capacity-1-foreground = "\${colors.alert}";
+        ramp-capacity-2 = "󰁻";
+        ramp-capacity-3 = "󰁼";
+        ramp-capacity-4 = "󰁽";
+        ramp-capacity-5 = "󰁾";
+        ramp-capacity-6 = "󰁿";
+        ramp-capacity-7 = "󰂀";
+        ramp-capacity-8 = "󰂁";
+        ramp-capacity-9 = "󰂂";
+
+        animation-charging-0 = "󰢜";
+        animation-charging-1 = "󰂆";
+        animation-charging-2 = "󰂇";
+        animation-charging-3 = "󰂈";
+        animation-charging-4 = "󰢝";
+        animation-charging-5 = "󰂉";
+        animation-charging-6 = "󰢞";
+        animation-charging-7 = "󰂊";
+        animation-charging-8 = "󰂋";
+        animation-charging-9 = "󰂅";
+        animation-charging-framerate = 750;
       };
       "module/date" = {
         type = "internal/date";
@@ -95,7 +126,7 @@
         type = "custom/script";
         tail = true;
         label-padding = 2;
-        exec = "pulseaudio-control --icons-volume \" , \" --icon-muted \"\" --node-nicknames-from \"device.description\" --node-nickname \"alsa_output.pci-0000_2d_00.1.hdmi-stereo:\" --node-nickname \"alsa_output.pci-0000_2f_00.4.analog-stereo:\" listen";
+        exec = ''pulseaudio-control --icons-volume " " --icon-muted "󰝟" --node-nicknames-from "device.description" --node-nickname "alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__Speaker__sink:󰓃" --node-nickname "alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__Headphones__sink:󰋋" --node-nickname "alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI1__sink:󰍹" --node-nickname "alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI2__sink:󰍹" --node-nickname "alsa_output.pci-0000_00_1f.3-platform-sof_sdw.HiFi__HDMI3__sink:󰍹" listen'';
         click-right = "exec pavucontrol &";
         click-left = "pulseaudio-control togmute";
         click-middle = "pulseaudio-control next-sink";
@@ -106,6 +137,18 @@
         type = "internal/network";
         interface = "wlp0s20f3";
         interface-type = "wireless";
+        interval = 3;
+
+        format-connected = "<ramp-signal>";
+        format-disconnected = "<label-disconnected>";
+        label-disconnected = "󰤮";
+        label-disconnected-foreground = "\${colors.foreground-alt}";
+
+        ramp-signal-0 = "󰤯";
+        ramp-signal-1 = "󰤟";
+        ramp-signal-2 = "󰤢";
+        ramp-signal-3 = "󰤥";
+        ramp-signal-4 = "󰤨";
       };
     };
   };

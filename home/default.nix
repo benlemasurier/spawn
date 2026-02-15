@@ -240,10 +240,6 @@
         config = ./files/xmonad.hs;
       };
     };
-
-    initExtra = lib.mkIf (hostname == "pine") ''
-      xinput set-prop "SNSL0028:00 2C2F:0028 Touchpad" "libinput Natural Scrolling Enabled" 1
-    '';
   };
 
   services.gpg-agent = {

@@ -13,11 +13,12 @@
 
   networking.hostName = "pine";
   networking.enableIPv6 = false;
-  networking.timeServers = [ "192.168.1.4" ];
+  networking.timeServers = [
+    "192.168.1.4"
+    "0.nixos.pool.ntp.org"
+    "1.nixos.pool.ntp.org"
+  ];
   # networking.wireless.enable = true;  # wireless via wpa_supplicant.
-
-  networking.nameservers = [ "192.168.1.4" ];
-  services.resolved.enable = true;
 
   services.mullvad-vpn = {
     enable = true;
@@ -87,9 +88,11 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     age
+    brightnessctl
     git
     gnupg
     lsof
+    pulseaudio
     pulseaudio-ctl
     silver-searcher
     sops
@@ -132,6 +135,20 @@
     };
   };
 
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      naturalScrolling = true;
+      tapping = true;
+      tappingDragLock = true;
+      clickMethod = "clickfinger";
+      accelProfile = "adaptive";
+      accelSpeed = "0.3";
+      disableWhileTyping = true;
+      scrollMethod = "twofinger";
+    };
+  };
+
   services.displayManager.defaultSession = "default";
 
   location.latitude = 40.13;
@@ -153,14 +170,14 @@
   virtualisation.docker.enable = true;
 
   # https://nixos.wiki/wiki/Libvirt
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      # package = pkgs.qemu_kvm;
-      package = pkgs.qemu_full;
-      runAsRoot = true;
-    };
-  };
+  #virtualisation.libvirtd = {
+  #  enable = true;
+  #  qemu = {
+  #    # package = pkgs.qemu_kvm;
+  #    package = pkgs.qemu_full;
+  #    runAsRoot = true;
+  #  };
+  #};
 
   hardware.graphics = {
     enable = true;
@@ -219,17 +236,12 @@
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";
   sops.age.generateKey = true;
-  sops.secrets."duplicity/env" = { };
 
-  # backups
-  # NOTE: this wouldn't work until a full backup was first completed.
-  # `systemctl cat duplicity.service`, execute ExecStart cmd, replacing `incr` with `full`.
-  # be sure to set env (password) from EnvironmentFile
-  services.duplicity = {
-    enable = true;
-    frequency = "daily";
-    root = "/home/ben";
-    targetUrl = "file:///storage/duplicity-backups";
-    secretFile = config.sops.secrets."duplicity/env".path;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
+
+  nix.settings.auto-optimise-store = true;
 }

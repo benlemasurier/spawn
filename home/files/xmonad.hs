@@ -42,7 +42,6 @@ layout = avoidStruts (
     mkToggle (single REFLECTY) $
     mySpacing $ 
         Tall 1 (3/100) (1/2) |||
-        Tall 1 (3/100) (1/2) |||
         ThreeColMid 1 (3/100) (1/2) |||
         Full |||
         Grid)
@@ -64,6 +63,12 @@ cfg = desktopConfig {
         , ("M-S-p", safeSpawn "rofi-pass" [])
         , ("M-x",   sendMessage $ Toggle REFLECTX)
         , ("M-y",   sendMessage $ Toggle REFLECTY)
+	, ("<XF86AudioRaiseVolume>",  unsafeSpawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+	, ("<XF86AudioLowerVolume>",  unsafeSpawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+	, ("<XF86AudioMute>",         unsafeSpawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+	, ("<XF86AudioMicMute>",      unsafeSpawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+	, ("<XF86MonBrightnessUp>",   unsafeSpawn "brightnessctl set +5%")
+	, ("<XF86MonBrightnessDown>", unsafeSpawn "brightnessctl set 5%-")
         ]
 
 main :: IO ()
