@@ -24,6 +24,8 @@
     enable = true;
   };
 
+  security.pam.services.i3lock.enable = true;
+
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Denver";

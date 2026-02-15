@@ -26,11 +26,15 @@
       nixos-hardware,
       ...
     }:
+    let
+      overlay = import ./overlays;
+    in
     {
       nixosConfigurations = {
         rooster = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            { nixpkgs.overlays = [ overlay ]; }
             ./hosts/rooster/configuration.nix
             sops-nix.nixosModules.sops
 
@@ -51,6 +55,7 @@
         pine = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            { nixpkgs.overlays = [ overlay ]; }
             ./hosts/pine/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
             sops-nix.nixosModules.sops

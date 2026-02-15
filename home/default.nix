@@ -149,6 +149,7 @@
     htop
     httpie
     hurl
+    i3lock
     isort
     jq
     k9s
@@ -198,6 +199,8 @@
     vendir
     vlc
     xclip
+    xss-lock
+    xwobf
     yq-go
     zathura
   ];
@@ -216,6 +219,16 @@
 
   home.file.".config/alacritty/alacritty.toml" = {
     source = ./files/alacritty/alacritty.toml;
+  };
+  home.file.".config/alacritty/gruvbox-dark.toml" = {
+    source = ./files/alacritty/gruvbox-dark.toml;
+  };
+  home.file.".config/alacritty/host.toml" = {
+    source =
+      if hostname == "pine" then
+        ./files/alacritty/host-pine.toml
+      else
+        ./files/alacritty/host-rooster.toml;
   };
 
   home.file.".gitconfig" = {
@@ -264,4 +277,17 @@
     source = ./files/background-images;
     recursive = true;
   };
+
+  services.screen-locker = {
+    enable = true;
+    lockCmd = let
+      lockScript = pkgs.writeShellScript "lock" ''
+        ${pkgs.xwobf}/bin/xwobf /tmp/.lock.png && ${pkgs.i3lock}/bin/i3lock -n -i /tmp/.lock.png
+      '';
+    in "${lockScript}";
+    inactiveInterval = 5;
+    xautolock.enable = false;
+    xss-lock.extraOptions = [ "--transfer-sleep-lock" ];
+  };
+
 }
