@@ -32,7 +32,6 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/rooster/configuration.nix
-            nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
             sops-nix.nixosModules.sops
 
             home-manager.nixosModules.home-manager
@@ -53,6 +52,7 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/pine/configuration.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
             sops-nix.nixosModules.sops
 
             home-manager.nixosModules.home-manager
