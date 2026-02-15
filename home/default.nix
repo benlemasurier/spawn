@@ -16,6 +16,7 @@
     ./programs/dunst.nix
     ./programs/fonts.nix
     ./programs/khal.nix
+    ./programs/meshtastic.nix
     ./programs/nats.nix
     ./programs/neovim
     ./programs/polybar.nix
