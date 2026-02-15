@@ -93,7 +93,6 @@
     gnupg
     lsof
     pulseaudio
-    pulseaudio-ctl
     silver-searcher
     sops
     twingate
@@ -134,6 +133,21 @@
       enableContribAndExtras = true;
     };
   };
+
+  fonts.packages = [
+    (pkgs.stdenvNoCC.mkDerivation {
+      pname = "battery-symbols";
+      version = "unstable";
+      src = pkgs.fetchurl {
+        url = "https://github.com/cawaltrip/battery-symbols/raw/main/BatterySymbols-Regular.ttf";
+        sha256 = "sha256-yIxusD/d1FO9xcBEpR9opSVZodqnNGSrK4E9SiRa1mE=";
+      };
+      dontUnpack = true;
+      installPhase = ''
+        install -Dm444 $src $out/share/fonts/truetype/BatterySymbols-Regular.ttf
+      '';
+    })
+  ];
 
   services.libinput = {
     enable = true;

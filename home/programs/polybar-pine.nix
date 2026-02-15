@@ -41,6 +41,7 @@
         font-2 = "DejaVu Sans Mono:size=14:heavy:fontformat=truetype;3";
         font-3 = "Font Awesome 6 Free:size=20:fontformat=truetype;5";
         font-4 = "Symbols Nerd Font Mono:size=14;5";
+        font-5 = "Battery Symbols:size=24;-8";
         modules-left = "ewmh xwindow";
         modules-center = "";
         modules-right = "pulseaudio-control filesystem network battery tray date";
@@ -83,31 +84,27 @@
 
         format-charging = "<animation-charging>";
         format-discharging = "<ramp-capacity>";
-        format-full = "󰁹";
+        format-full = "󲃉";
 
-        ramp-capacity-0 = "󰂎";
+        ramp-capacity-0 = "󲁥";
         ramp-capacity-0-foreground = "\${colors.alert}";
-        ramp-capacity-1 = "󰁺";
+        ramp-capacity-1 = "󲁯";
         ramp-capacity-1-foreground = "\${colors.alert}";
-        ramp-capacity-2 = "󰁻";
-        ramp-capacity-3 = "󰁼";
-        ramp-capacity-4 = "󰁽";
-        ramp-capacity-5 = "󰁾";
-        ramp-capacity-6 = "󰁿";
-        ramp-capacity-7 = "󰂀";
-        ramp-capacity-8 = "󰂁";
-        ramp-capacity-9 = "󰂂";
+        ramp-capacity-2 = "󲁹";
+        ramp-capacity-3 = "󲂃";
+        ramp-capacity-4 = "󲂍";
+        ramp-capacity-5 = "󲂗";
+        ramp-capacity-6 = "󲂡";
+        ramp-capacity-7 = "󲂫";
+        ramp-capacity-8 = "󲂵";
+        ramp-capacity-9 = "󲂿";
 
-        animation-charging-0 = "󰢜";
-        animation-charging-1 = "󰂆";
-        animation-charging-2 = "󰂇";
-        animation-charging-3 = "󰂈";
-        animation-charging-4 = "󰢝";
-        animation-charging-5 = "󰂉";
-        animation-charging-6 = "󰢞";
-        animation-charging-7 = "󰂊";
-        animation-charging-8 = "󰂋";
-        animation-charging-9 = "󰂅";
+        animation-charging-0 = "󲀀";
+        animation-charging-1 = "󲀔";
+        animation-charging-2 = "󲀨";
+        animation-charging-3 = "󲀼";
+        animation-charging-4 = "󲁐";
+        animation-charging-5 = "󲁤";
         animation-charging-framerate = 750;
       };
       "module/date" = {
