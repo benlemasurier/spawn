@@ -4,6 +4,7 @@
   lib,
   fetchFromGitHub,
   buildGoModule,
+  hostname ? "rooster",
   ...
 }:
 
@@ -19,11 +20,21 @@
     ./programs/meshtastic.nix
     ./programs/nats.nix
     ./programs/neovim
-    ./programs/polybar.nix
-    ./programs/rofi
     ./programs/tmux.nix
     ./xdg
-  ];
+  ]
+  ++ (
+    if hostname == "pine" then
+      [
+        ./programs/polybar-pine.nix
+        ./programs/rofi-pine
+      ]
+    else
+      [
+        ./programs/polybar.nix
+        ./programs/rofi
+      ]
+  );
 
   programs.bash = {
     enable = true;
@@ -58,7 +69,12 @@
 
   programs.firefox = {
     enable = true;
+
     package = pkgs.firefox.override { cfg.speechSynthesisSupport = false; };
+    profiles.default.settings = lib.mkIf (hostname == "pine") {
+      "layout.css.devPixelsPerPx" = "0.6";
+      # "media.cubeb.backend" = "pipewire";
+    };
   };
 
   #nixpkgs.overlays = [
@@ -186,7 +202,9 @@
     zathura
   ];
 
-  xresources.extraConfig = builtins.readFile ./files/Xresources;
+  xresources.extraConfig = builtins.readFile (
+    if hostname == "pine" then ./files/Xresources-pine else ./files/Xresources
+  );
 
   home.pointerCursor = {
     name = "Vanilla-DMZ-AA";
@@ -222,6 +240,10 @@
         config = ./files/xmonad.hs;
       };
     };
+
+    initExtra = lib.mkIf (hostname == "pine") ''
+      xinput set-prop "SNSL0028:00 2C2F:0028 Touchpad" "libinput Natural Scrolling Enabled" 1
+    '';
   };
 
   services.gpg-agent = {
