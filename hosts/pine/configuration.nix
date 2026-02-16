@@ -14,7 +14,7 @@
 
   services.logind.lidSwitch = "suspend-then-hibernate";
   systemd.sleep.extraConfig = ''
-    HibernateDelaySec=30min
+    HibernateDelaySec=75min
   '';
 
   networking.hostName = "pine";
