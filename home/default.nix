@@ -244,6 +244,11 @@
     source = ./files/quiltrc;
   };
 
+  # fix x1 carbon (gen13) terrible audio
+  home.file.".config/easyeffects/output/LoudnessEqualizer.json" = lib.mkIf (hostname == "pine") {
+    source = ./files/LoudnessEqualizer.json;
+  };
+
   xsession = {
     enable = true;
     windowManager = {
@@ -280,11 +285,13 @@
 
   services.screen-locker = {
     enable = true;
-    lockCmd = let
-      lockScript = pkgs.writeShellScript "lock" ''
-        ${pkgs.xwobf}/bin/xwobf /tmp/.lock.png && ${pkgs.i3lock}/bin/i3lock -n -i /tmp/.lock.png
-      '';
-    in "${lockScript}";
+    lockCmd =
+      let
+        lockScript = pkgs.writeShellScript "lock" ''
+          ${pkgs.xwobf}/bin/xwobf /tmp/.lock.png && ${pkgs.i3lock}/bin/i3lock -n -i /tmp/.lock.png
+        '';
+      in
+      "${lockScript}";
     inactiveInterval = 5;
     xautolock.enable = false;
     xss-lock.extraOptions = [ "--transfer-sleep-lock" ];

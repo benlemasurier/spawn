@@ -10,6 +10,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "ipv6.disable=1" ];
+  boot.resumeDevice = "/dev/mapper/luks-d54ce8a7-14cf-4eed-a121-aab6d88d82a6";
+
+  services.logind.lidSwitch = "suspend-then-hibernate";
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30min
+  '';
 
   networking.hostName = "pine";
   networking.enableIPv6 = false;
@@ -25,6 +31,7 @@
   };
 
   security.pam.services.i3lock.enable = true;
+  security.pam.services.i3lock.fprintAuth = true;
 
   networking.networkmanager.enable = true;
 
@@ -91,6 +98,7 @@
   environment.systemPackages = with pkgs; [
     age
     brightnessctl
+    easyeffects
     git
     gnupg
     lsof
@@ -101,6 +109,16 @@
     wget
     xinit
   ];
+
+  # fingerprint reader
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+
+  systemd.services.fprintd = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "simple";
+  };
 
   # x11
   services.autorandr.enable = true;
@@ -155,11 +173,11 @@
     enable = true;
     touchpad = {
       naturalScrolling = true;
-      tapping = true;
+      tapping = false;
       tappingDragLock = true;
       clickMethod = "clickfinger";
       accelProfile = "adaptive";
-      accelSpeed = "0.3";
+      accelSpeed = "0.2";
       disableWhileTyping = true;
       scrollMethod = "twofinger";
     };
