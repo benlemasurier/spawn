@@ -36,12 +36,12 @@
         padding-right = 1;
         module-margin-left = 1;
         module-margin-right = 1;
-        font-0 = "mononoki:pixelsize=12;5";
+        font-0 = "mononoki:pixelsize=12;3";
         font-1 = "Bitstream Vera Sans Mono:size=14:heavy:fontformat=truetype;";
         font-2 = "DejaVu Sans Mono:size=14:heavy:fontformat=truetype;3";
-        font-3 = "Font Awesome 6 Free:size=20:fontformat=truetype;5";
-        font-4 = "Symbols Nerd Font Mono:size=14;5";
-        font-5 = "Battery Symbols:size=24;-8";
+        font-3 = "Font Awesome 6 Free:size=16:fontformat=truetype;5";
+        font-4 = "Symbols Nerd Font Mono:size=12;3";
+        font-5 = "Battery Symbols:size=21;-10";
         modules-left = "ewmh xwindow";
         modules-center = "";
         modules-right = "pulseaudio-control filesystem network battery tray date";
