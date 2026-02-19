@@ -10,8 +10,6 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernel.sysctl."vm.swappiness" = 10;
-
   boot.initrd.luks.devices."luks-c50a894f-4c4e-4966-9ea5-62270bb86c5f" = {
     device = "/dev/disk/by-uuid/c50a894f-4c4e-4966-9ea5-62270bb86c5f";
     allowDiscards = true;
@@ -22,7 +20,6 @@
   networking.nameservers = [ "192.168.1.4" ];
 
   services.resolved.enable = true;
-  systemd.services.NetworkManager-wait-online.enable = false;
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # https://nixos.wiki/wiki/Libvirt
