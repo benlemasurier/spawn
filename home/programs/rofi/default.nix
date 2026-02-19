@@ -1,11 +1,13 @@
-{ ... }:
+{ hostname, ... }:
 
+let
+  isLaptop = hostname == "pine";
+in
 {
-
   programs.rofi = {
     enable = true;
     pass.enable = true;
-    font = "mononoki 20";
+    font = if isLaptop then "mononoki 14" else "mononoki 20";
     theme = "phant";
     extraConfig = {
       "display-run" = ">_";

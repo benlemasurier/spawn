@@ -2,8 +2,6 @@
   config,
   pkgs,
   lib,
-  fetchFromGitHub,
-  buildGoModule,
   hostname ? "rooster",
   ...
 }:
@@ -21,21 +19,11 @@
     ./programs/meshtastic.nix
     ./programs/nats.nix
     ./programs/neovim
+    ./programs/polybar.nix
+    ./programs/rofi
     ./programs/tmux.nix
     ./xdg
-  ]
-  ++ (
-    if hostname == "pine" then
-      [
-        ./programs/polybar-pine.nix
-        ./programs/rofi-pine
-      ]
-    else
-      [
-        ./programs/polybar.nix
-        ./programs/rofi
-      ]
-  );
+  ];
 
   programs.bash = {
     enable = true;
@@ -78,7 +66,7 @@
       # compact ui: remove minimize, maximize, close buttons
       "browser.tabs.inTitleBar" = 0;
     }
-    // lib.mkIf (hostname == "pine") {
+    // lib.optionalAttrs (hostname == "pine") {
       # scale ui to a reasonable size
       "layout.css.devPixelsPerPx" = "0.6";
     };
@@ -174,7 +162,7 @@
     polybar-pulseaudio-control
     postgresql
     pyright
-    python311Packages.pip
+    python3Packages.pip
     python3
     quilt
     rustup
