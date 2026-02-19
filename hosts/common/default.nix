@@ -102,6 +102,11 @@
   services.openssh.enable = true;
   virtualisation.docker.enable = true;
 
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
+
   # sops-nix configured via this README:
   # - https://github.com/Mic92/sops-nix/blob/4606d9b1595e42ffd9b75b9e69667708c70b1d68/README.md
   sops.defaultSopsFile = ../../secrets/sops.yaml;

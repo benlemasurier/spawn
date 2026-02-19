@@ -28,12 +28,19 @@
   fileSystems."/" = {
     device = "/dev/mapper/luks-2fc9590c-e366-478b-b37f-aff19a493d9f";
     fsType = "ext4";
+    options = [ "noatime" ];
   };
 
-  boot.initrd.luks.devices."luks-2fc9590c-e366-478b-b37f-aff19a493d9f".device =
-    "/dev/disk/by-uuid/2fc9590c-e366-478b-b37f-aff19a493d9f";
-  boot.initrd.luks.devices."luks-d54ce8a7-14cf-4eed-a121-aab6d88d82a6".device =
-    "/dev/disk/by-uuid/d54ce8a7-14cf-4eed-a121-aab6d88d82a6";
+  boot.initrd.luks.devices."luks-2fc9590c-e366-478b-b37f-aff19a493d9f" = {
+    device = "/dev/disk/by-uuid/2fc9590c-e366-478b-b37f-aff19a493d9f";
+    allowDiscards = true;
+    bypassWorkqueues = true;
+  };
+  boot.initrd.luks.devices."luks-d54ce8a7-14cf-4eed-a121-aab6d88d82a6" = {
+    device = "/dev/disk/by-uuid/d54ce8a7-14cf-4eed-a121-aab6d88d82a6";
+    allowDiscards = true;
+    bypassWorkqueues = true;
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/C214-25FA";
