@@ -12,8 +12,10 @@
   imports = [
     ./accounts.nix
     ./programs/alacritty.nix
+    ./programs/bash.nix
     ./programs/bat.nix
     ./programs/dunst.nix
+    ./programs/firefox.nix
     ./programs/fonts.nix
     ./programs/git.nix
     ./programs/khal.nix
@@ -26,28 +28,6 @@
     ./xdg
   ];
 
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    historySize = -1;
-    historyFileSize = -1;
-    historyControl = [
-      "ignoredups"
-      "ignorespace"
-    ];
-
-    shellAliases = {
-      bc = "bc -l"; # always load math lib for decimals
-      cat = "bat -pp"; # plain, disable paging
-      k = "kubectl";
-      tf = "terraform";
-      ls = "eza";
-      man = "batman";
-      mk = "minikube kubectl --";
-      pbcopy = "xclip -selection clipboard";
-    };
-  };
-
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
@@ -57,20 +37,6 @@
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
-  };
-
-  programs.firefox = {
-    enable = true;
-
-    package = pkgs.firefox.override { cfg.speechSynthesisSupport = false; };
-    profiles.default.settings = {
-      # compact ui: remove minimize, maximize, close buttons
-      "browser.tabs.inTitleBar" = 0;
-    }
-    // lib.optionalAttrs (hostname == "pine") {
-      # scale ui to a reasonable size
-      "layout.css.devPixelsPerPx" = "0.6";
-    };
   };
 
   home.packages = with pkgs; [
