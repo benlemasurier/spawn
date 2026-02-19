@@ -16,6 +16,7 @@
     ./programs/bat.nix
     ./programs/dunst.nix
     ./programs/fonts.nix
+    ./programs/git.nix
     ./programs/khal.nix
     ./programs/meshtastic.nix
     ./programs/nats.nix
@@ -56,10 +57,12 @@
       mk = "minikube kubectl --";
       pbcopy = "xclip -selection clipboard";
     };
+  };
 
-    bashrcExtra = ''
-      eval "$(direnv hook bash)"
-    '';
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.fzf = {
@@ -71,25 +74,15 @@
     enable = true;
 
     package = pkgs.firefox.override { cfg.speechSynthesisSupport = false; };
-    profiles.default.settings = lib.mkIf (hostname == "pine") {
+    profiles.default.settings = {
+      # compact ui: remove minimize, maximize, close buttons
+      "browser.tabs.inTitleBar" = 0;
+    }
+    // lib.mkIf (hostname == "pine") {
+      # scale ui to a reasonable size
       "layout.css.devPixelsPerPx" = "0.6";
-      # "media.cubeb.backend" = "pipewire";
     };
   };
-
-  #nixpkgs.overlays = [
-  #  (final: prev: {
-  #    vault = final.buildGoModule rec {
-  #      version = "1.15.6";
-  #      src = fetchFromGitHub {
-  #        owner = "hashicorp";
-  #        repo = "vault";
-  #        rev = "v${version}";
-  #        hash = lib.fakeSha256;
-  #      };
-  #    };
-  #  })
-  #];
 
   home.packages = with pkgs; [
     alacritty
@@ -105,7 +98,6 @@
     clang-tools
     cscope
     dig
-    direnv
     dive
     esphome
     eza
@@ -231,12 +223,6 @@
         ./files/alacritty/host-rooster.toml;
   };
 
-  home.file.".gitconfig" = {
-    source = ./files/gitconfig;
-  };
-  home.file."/code/lambda/.gitconfig" = {
-    source = ./files/gitconfig-work;
-  };
   home.file.".gdbinit" = {
     source = ./files/gdbinit;
   };
