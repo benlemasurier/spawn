@@ -283,8 +283,9 @@
     recursive = true;
   };
 
-  services.screen-locker = {
+  services.screen-locker = lib.mkIf (hostname == "pine") {
     enable = true;
+
     lockCmd =
       let
         lockScript = pkgs.writeShellScript "lock" ''
