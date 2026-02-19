@@ -11,6 +11,7 @@
 
   imports = [
     ./accounts.nix
+    ./programs/alacritty.nix
     ./programs/bat.nix
     ./programs/dunst.nix
     ./programs/fonts.nix
@@ -73,7 +74,6 @@
   };
 
   home.packages = with pkgs; [
-    alacritty
     ansible
     ansible-lint
     asdbctl
@@ -191,20 +191,6 @@
     package = pkgs.vanilla-dmz;
     gtk.enable = true;
     x11.enable = true;
-  };
-
-  home.file.".config/alacritty/alacritty.toml" = {
-    source = ./files/alacritty/alacritty.toml;
-  };
-  home.file.".config/alacritty/gruvbox-dark.toml" = {
-    source = ./files/alacritty/gruvbox-dark.toml;
-  };
-  home.file.".config/alacritty/host.toml" = {
-    source =
-      if hostname == "pine" then
-        ./files/alacritty/host-pine.toml
-      else
-        ./files/alacritty/host-rooster.toml;
   };
 
   home.file.".gdbinit" = {
