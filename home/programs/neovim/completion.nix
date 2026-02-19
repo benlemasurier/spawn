@@ -17,17 +17,33 @@
 
           window = {
             completion = {
-              winhighlight =
-                "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
+              winhighlight = "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
               scrollbar = true;
               sidePadding = 0;
-              border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
+              border = [
+                "╭"
+                "─"
+                "╮"
+                "│"
+                "╯"
+                "─"
+                "╰"
+                "│"
+              ];
             };
 
             documentation = {
-              border = [ "╭" "─" "╮" "│" "╯" "─" "╰" "│" ];
-              winhighlight =
-                "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
+              border = [
+                "╭"
+                "─"
+                "╮"
+                "│"
+                "╯"
+                "─"
+                "╰"
+                "│"
+              ];
+              winhighlight = "FloatBorder:CmpBorder,Normal:CmpPmenu,Search:PmenuSel";
             };
           };
 
@@ -44,10 +60,8 @@
             "<C-Space>" = "cmp.mapping.complete()";
             "<C-e>" = "cmp.mapping.close()";
             "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-            "<S-Tab>" =
-              "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-            "<CR>" =
-              "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
+            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+            "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
           };
         };
       };

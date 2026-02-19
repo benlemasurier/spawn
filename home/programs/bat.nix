@@ -11,7 +11,9 @@
     extraPackages = builtins.attrValues {
       inherit (pkgs.bat-extras)
 
-      batman; # manpage viewer
+        # manpage viewer
+        batman
+        ;
     };
   };
 }
