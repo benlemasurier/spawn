@@ -15,7 +15,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "ipv6.disable=1" ];
 
+  boot.kernel.sysctl."vm.swappiness" = 10;
+
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   networking.enableIPv6 = false;
   networking.timeServers = [
