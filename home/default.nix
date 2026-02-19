@@ -185,10 +185,6 @@
     zathura
   ];
 
-  xresources.extraConfig = builtins.readFile (
-    if hostname == "pine" then ./files/Xresources-pine else ./files/Xresources
-  );
-
   home.pointerCursor = {
     name = "Vanilla-DMZ-AA";
     size = 24;
@@ -272,4 +268,50 @@
     xss-lock.extraOptions = [ "--transfer-sleep-lock" ];
   };
 
+  xresources.properties = {
+    "Xft.antialias" = 1;
+    "Xft.autohint" = 0;
+    "Xft.hinting" = 1;
+    "Xft.hintstyle" = if hostname == "pine" then "hintslight" else "hintfull";
+    "Xft.lcdfilter" = "lcddefault";
+    "Xft.rgba" = "rgb";
+    "Xft.dpi" = if hostname == "pine" then 196 else 218;
+
+    # special
+    "*.foreground" = "#c5c8c6";
+    "*.background" = "#1d1f21";
+    "*.cursorColor" = "#c5c8c6";
+
+    # black
+    "*.color0" = "#282a2e";
+    "*.color8" = "#373b41";
+
+    # red
+    "*.color1" = "#a54242";
+    "*.color9" = "#cc6666";
+
+    # green
+    "*.color2" = "#8c9440";
+    "*.color10" = "#b5bd68";
+
+    # yellow
+    "*.color3" = "#de935f";
+    "*.color11" = "#f0c674";
+
+    # blue
+    "*.color4" = "#5f819d";
+    "*.color12" = "#81a2be";
+
+    # magenta
+    "*.color5" = "#85678f";
+    "*.color13" = "#b294bb";
+
+    # cyan
+    "*.color6" = "#5e8d87";
+    "*.color14" = "#8abeb7";
+
+    # white
+    "*.color7" = "#707880";
+    "*.color15" = "#c5c8c6";
+  };
 }
