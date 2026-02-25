@@ -22,12 +22,6 @@
   security.pam.services.i3lock.enable = true;
   security.pam.services.i3lock.fprintAuth = true;
 
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [ "ben" ];
-  };
-
   # fingerprint reader
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
