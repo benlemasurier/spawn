@@ -50,6 +50,7 @@
     cc65
     check-jsonschema
     clang-tools
+    cmctl
     cscope
     dig
     dive
@@ -101,14 +102,15 @@
     k9s
     killall
     kind
+    krew
     kubectl
     kubelogin-oidc
     kubernetes-helm
     kubevirt
     kustomize
-    libx11
-    libusb1
     libnotify
+    libusb1
+    libx11
     luarocks
     manix
     minikube
@@ -120,6 +122,7 @@
     nodejs
     openfortivpn
     openssl
+    open-policy-agent
     pass
     pavucontrol
     pkg-config
@@ -130,6 +133,7 @@
     pyright
     python3Packages.pip
     python3
+    poetry
     quilt
     rustup
     shellcheck
