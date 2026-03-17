@@ -50,7 +50,7 @@
     cc65
     check-jsonschema
     clang-tools
-    cmctl
+    claude-code
     cscope
     dig
     dive
@@ -102,7 +102,6 @@
     k9s
     killall
     kind
-    krew
     kubectl
     kubelogin-oidc
     kubernetes-helm
@@ -113,7 +112,6 @@
     libx11
     luarocks
     manix
-    minikube
     moonlight-qt
     msmtp
     ncurses
@@ -130,10 +128,10 @@
     polkit_gnome
     polybar-pulseaudio-control
     postgresql
+    poetry
     pyright
     python3Packages.pip
     python3
-    poetry
     quilt
     rustup
     shellcheck

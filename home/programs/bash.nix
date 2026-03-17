@@ -18,7 +18,6 @@
       tf = "terraform";
       ls = "eza";
       man = "batman";
-      mk = "minikube kubectl --";
       pbcopy = "xclip -selection clipboard";
     };
   };
