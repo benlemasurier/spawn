@@ -29,8 +29,15 @@
       # package = pkgs.qemu_kvm;
       package = pkgs.qemu_full;
       runAsRoot = true;
+      vhostUserPackages = [ pkgs.virtiofsd ];
     };
   };
+  environment.systemPackages = with pkgs; [
+    guestfs-tools
+    libguestfs-with-appliance
+    virt-manager
+    virtiofsd
+  ];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -60,6 +67,9 @@
     targetUrl = "file:///storage/duplicity-backups";
     secretFile = config.sops.secrets."duplicity/env".path;
   };
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

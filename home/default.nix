@@ -135,6 +135,7 @@
     shellcheck
     signal-desktop
     slack
+    step-cli
     terraform
     tree-sitter
     ttf_bitstream_vera

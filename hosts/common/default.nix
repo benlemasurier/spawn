@@ -110,10 +110,33 @@
     interval = "weekly";
   };
 
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "ben" ];
+  };
+
   # sops-nix configured via this README:
   # - https://github.com/Mic92/sops-nix/blob/4606d9b1595e42ffd9b75b9e69667708c70b1d68/README.md
   sops.defaultSopsFile = ../../secrets/sops.yaml;
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";
   sops.age.generateKey = true;
+
+  sops.secrets."pki/certs/intermediate" = {
+    mode = "0444";
+  };
+
+  environment.variables = {
+    SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle-with-intermediate.crt";
+    NIX_SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle-with-intermediate.crt";
+  };
+
+  system.activationScripts.ca-intermediate-cert = {
+    deps = [ "setupSecrets" ];
+    text = ''
+      cp ${config.sops.secrets."pki/certs/intermediate".path} /etc/ssl/certs/intermediate.pem
+      cat /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/intermediate.pem > /etc/ssl/certs/ca-bundle-with-intermediate.crt
+    '';
+  };
 }
