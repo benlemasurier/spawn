@@ -14,10 +14,16 @@
 
   services.logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
   systemd.sleep.extraConfig = ''
-    HibernateDelaySec=75min
+    HibernateDelaySec=300min
   '';
 
   networking.hostName = "pine";
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  services.blueman.enable = true;
 
   security.pam.services.i3lock.enable = true;
   security.pam.services.i3lock.fprintAuth = true;

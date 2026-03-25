@@ -215,7 +215,7 @@
         '';
       in
       "${lockScript}";
-    inactiveInterval = 5;
+    inactiveInterval = 10;
     xautolock.enable = false;
     xss-lock.extraOptions = [ "--transfer-sleep-lock" ];
   };
