@@ -125,10 +125,11 @@
     pavucontrol
     pkg-config
     plantuml
+    poetry
     polkit_gnome
     polybar-pulseaudio-control
     postgresql
-    poetry
+    pre-commit
     pyright
     python3Packages.pip
     python3
@@ -141,8 +142,9 @@
     terraform
     tree-sitter
     ttf_bitstream_vera
-    unzip
     universal-ctags
+    unzip
+    uv
     vanilla-dmz
     vegeta
     vendir
