@@ -16,6 +16,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -24,6 +28,7 @@
       home-manager,
       sops-nix,
       nixos-hardware,
+      nix-darwin,
       ...
     }:
     let
@@ -75,26 +80,28 @@
         };
       };
 
-      homeConfigurations = {
-        "ben@sitka" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            config.allowUnfree = true;
-          };
-          extraSpecialArgs = {
-            inherit inputs;
-            hostname = "sitka";
-          };
+      darwinConfigurations = {
+        sitka = nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
           modules = [
-            {
-              home.username = "ben";
-              home.homeDirectory = "/Users/ben";
-              programs.home-manager.enable = true;
+            { nixpkgs.config.allowUnfree = true; }
+            ./hosts/sitka/configuration.nix
 
-              imports = [
-                ./home/common.nix
-                ./home/programs/ghostty.nix
-              ];
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                hostname = "sitka";
+              };
+
+              home-manager.users.ben = {
+                imports = [
+                  ./home/common.nix
+                  ./home/programs/ghostty.nix
+                ];
+              };
             }
           ];
         };
