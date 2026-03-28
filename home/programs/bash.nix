@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.bash = {
@@ -18,6 +18,7 @@
       tf = "terraform";
       ls = "eza";
       man = "batman";
+    } // lib.optionalAttrs pkgs.stdenv.isLinux {
       pbcopy = "xclip -selection clipboard";
     };
   };

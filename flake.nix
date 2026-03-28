@@ -77,7 +77,10 @@
 
       homeConfigurations = {
         "ben@sitka" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            config.allowUnfree = true;
+          };
           extraSpecialArgs = {
             inherit inputs;
             hostname = "sitka";
@@ -86,11 +89,10 @@
             {
               home.username = "ben";
               home.homeDirectory = "/Users/ben";
-              home.stateVersion = "23.05";
               programs.home-manager.enable = true;
 
               imports = [
-                ./home/programs/neovim
+                ./home/common.nix
               ];
             }
           ];

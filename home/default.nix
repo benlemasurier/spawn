@@ -7,153 +7,42 @@
 }:
 
 {
-  home.stateVersion = "23.05";
-
   imports = [
+    ./common.nix
     ./accounts.nix
     ./programs/alacritty.nix
-    ./programs/bash.nix
-    ./programs/bat.nix
     ./programs/dunst.nix
-    ./programs/firefox.nix
-    ./programs/fonts.nix
-    ./programs/git.nix
-    ./programs/khal.nix
     ./programs/meshtastic.nix
-    ./programs/nats.nix
-    ./programs/neovim
+    ./programs/firefox.nix
+    ./programs/khal.nix
     ./programs/polybar.nix
     ./programs/rofi
-    ./programs/tmux.nix
     ./xdg
   ];
 
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-
   home.packages = with pkgs; [
-    ansible
-    ansible-lint
     asdbctl
-    awscli2
-    bison
-    bc
-    buildkite-cli
     cc65
-    check-jsonschema
-    clang-tools
-    claude-code
-    cscope
-    dig
-    dive
-    esphome
-    eza
     feh
-    file
-    gcc
-    flex
     gdb
-    gdu
-    ghc
-    gnumake
-    gnupg
-
-    # golang
-    delve
-    go
-    go-critic
-    golangci-lint
-    golines
-    golint
-    gomodifytags
-    gotests
-    gotestsum
-    gotools
-    govulncheck
-    iferr
-    impl
-    ipmitool
-    mockgen
-    reftools
-    revive
-    richgo
-
-    graphviz
-    (pkgs.go-migrate.overrideAttrs (oldAttrs: {
-      tags = [ "postgres" ];
-    }))
-    hadolint
     higan
-    himalaya
-    htop
-    httpie
-    hurl
     i3lock
-    isort
-    jq
-    k9s
-    killall
-    kind
-    kubectl
-    kubelogin-oidc
-    kubernetes-helm
-    kubevirt
-    kustomize
+    ipmitool
     libnotify
-    libusb1
     libx11
-    luarocks
-    manix
     moonlight-qt
-    msmtp
-    ncurses
-    ncurses.dev
     nh
-    nodejs
-    openfortivpn
-    openssl
     open-policy-agent
-    pass
     pavucontrol
-    pkg-config
-    plantuml
-    poetry
     polkit_gnome
     polybar-pulseaudio-control
-    postgresql
-    pre-commit
-    pyright
-    python3Packages.pip
-    python3
-    quilt
-    rustup
-    shellcheck
     signal-desktop
     slack
-    step-cli
-    terraform
-    tree-sitter
-    ttf_bitstream_vera
-    universal-ctags
-    unzip
-    uv
     vanilla-dmz
-    vegeta
-    vendir
     vlc
     xclip
     xss-lock
     xwobf
-    yq-go
-    zathura
   ];
 
   home.pointerCursor = {
@@ -166,9 +55,6 @@
 
   home.file.".gdbinit" = {
     source = ./files/gdbinit;
-  };
-  home.file.".quiltrc" = {
-    source = ./files/quiltrc;
   };
 
   # fix x1 carbon (gen13) terrible audio
