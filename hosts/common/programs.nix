@@ -14,7 +14,6 @@
     gnupg
     lsof
     pulseaudio
-    silver-searcher
     sops
     twingate
     wget

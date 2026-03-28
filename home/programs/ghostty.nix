@@ -13,6 +13,7 @@
       cursor-style-blink = false;
       mouse-scroll-multiplier = 3;
       scrollback-limit = 10000;
+      term = "xterm-256color";
       window-padding-x = 2;
       window-padding-y = 2;
     };

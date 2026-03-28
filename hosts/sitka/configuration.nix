@@ -26,6 +26,14 @@
   environment.shells = [ pkgs.bash ];
   programs.bash.enable = true;
 
+  homebrew = {
+    enable = true;
+    casks = [
+      "signal"
+    ];
+    onActivation.cleanup = "zap";
+  };
+
   # macOS defaults
   system.defaults = {
     dock = {
