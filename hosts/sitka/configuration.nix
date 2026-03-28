@@ -63,6 +63,7 @@
         AppleHighlightColor = "0.698039 0.843137 1.000000 Blue";
         AppleAntiAliasingThreshold = 4;
         AppleMiniaturizeOnDoubleClick = false;
+        NSMenuEnableActionImages = false; # hide Tahoe menu icons
       };
     };
 
