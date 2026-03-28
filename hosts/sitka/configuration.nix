@@ -30,6 +30,7 @@
   system.defaults = {
     dock = {
       autohide = true;
+      autohide-delay = 0.0; # no delay
       launchanim = false;
       mineffect = "scale";
       show-recents = false;
@@ -39,20 +40,52 @@
 
     finder = {
       AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+      FXEnableExtensionChangeWarning = false;
+      FXPreferredViewStyle = "Nlsv"; # list view
+      _FXShowPosixPathInTitle = true;
+      _FXSortFoldersFirst = true;
       ShowExternalHardDrivesOnDesktop = true;
+      ShowPathbar = true;
       ShowRemovableMediaOnDesktop = true;
+      ShowStatusBar = true;
     };
 
     NSGlobalDomain = {
       AppleShowAllExtensions = true;
-      NSAutomaticCapitalizationEnabled = true;
-      NSAutomaticPeriodSubstitutionEnabled = true;
+      AppleShowAllFiles = true;
+      ApplePressAndHoldEnabled = false; # enable key repeat
+      InitialKeyRepeat = 15;
+      KeyRepeat = 2;
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
+      NSDocumentSaveNewDocumentsToCloud = false;
+      NSNavPanelExpandedStateForSaveMode = true;
+      NSNavPanelExpandedStateForSaveMode2 = true;
       NSTableViewDefaultSizeMode = 2;
       "com.apple.swipescrolldirection" = true;
       "com.apple.trackpad.forceClick" = true;
       "com.apple.springing.enabled" = true;
       "com.apple.springing.delay" = 0.5;
       "com.apple.sound.beep.feedback" = 0;
+    };
+
+    menuExtraClock = {
+      Show24Hour = true;
+      ShowDate = 1;
+      ShowDayOfWeek = true;
+      ShowSeconds = false;
+    };
+
+    WindowManager = {
+      EnableStandardClickToShowDesktop = false;
+    };
+
+    SoftwareUpdate = {
+      AutomaticallyInstallMacOSUpdates = false;
     };
 
     # settings not exposed by nix-darwin directly
