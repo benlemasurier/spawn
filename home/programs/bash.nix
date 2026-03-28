@@ -11,6 +11,13 @@
       "ignorespace"
     ];
 
+    initExtra = ''
+      PROMPT_COLOR="1;32m"
+      if [ "$TERM" != "dumb" ]; then
+        PS1="\[\033[$PROMPT_COLOR\][\[\e]0;\u@\h: \w\a\]\u@\h:\w]\\$\[\033[0m\] "
+      fi
+    '';
+
     shellAliases = {
       bc = "bc -l"; # always load math lib for decimals
       cat = "bat -pp"; # plain, disable paging
