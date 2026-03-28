@@ -93,6 +93,7 @@
 
               imports = [
                 ./home/common.nix
+                ./home/programs/ghostty.nix
               ];
             }
           ];
