@@ -74,5 +74,27 @@
           ];
         };
       };
+
+      homeConfigurations = {
+        "ben@sitka" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          extraSpecialArgs = {
+            inherit inputs;
+            hostname = "sitka";
+          };
+          modules = [
+            {
+              home.username = "ben";
+              home.homeDirectory = "/Users/ben";
+              home.stateVersion = "23.05";
+              programs.home-manager.enable = true;
+
+              imports = [
+                ./home/programs/neovim
+              ];
+            }
+          ];
+        };
+      };
     };
 }
