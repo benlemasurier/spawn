@@ -106,6 +106,7 @@
     postgresql
     pre-commit
     pyright
+    pipx
     python3Packages.pip
     python3
     quilt
