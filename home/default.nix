@@ -38,6 +38,7 @@
     polybar-pulseaudio-control
     signal-desktop
     slack
+    speakeasy
     vanilla-dmz
     vlc
     xclip
