@@ -29,7 +29,7 @@
   };
 
   home.packages = with pkgs; [
-    silver-searcher
+    silver-searcher-ng
     ansible
     ansible-lint
     awscli2
