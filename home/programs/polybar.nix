@@ -39,14 +39,14 @@ in
         padding-right = 1;
         module-margin-left = 1;
         module-margin-right = 1;
-        font-0 = if isLaptop then "mononoki:pixelsize=12;3" else "mononoki:pixelsize=20;5";
+        font-0 = if isLaptop then "mononoki:pixelsize=12;3" else "mononoki:pixelsize=12;3";
         font-1 = "Bitstream Vera Sans Mono:size=14:heavy:fontformat=truetype;";
         font-2 = "DejaVu Sans Mono:size=14:heavy:fontformat=truetype;3";
         font-3 =
           if isLaptop then
             "Font Awesome 6 Free:size=16:fontformat=truetype;5"
           else
-            "Font Awesome 6 Free:size=20:fontformat=truetype;5";
+            "Font Awesome 6 Free:size=16:fontformat=truetype;5";
         modules-left = "ewmh xwindow";
         modules-center = "";
         modules-right =

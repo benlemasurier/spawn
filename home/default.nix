@@ -121,7 +121,7 @@
     "Xft.hintstyle" = if hostname == "pine" then "hintslight" else "hintfull";
     "Xft.lcdfilter" = "lcddefault";
     "Xft.rgba" = "rgb";
-    "Xft.dpi" = if hostname == "pine" then 196 else 218;
+    "Xft.dpi" = if hostname == "pine" then 196 else 144;
 
     # special
     "*.foreground" = "#c5c8c6";

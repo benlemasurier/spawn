@@ -6,9 +6,9 @@ in
 {
   programs.rofi = {
     enable = true;
-    font = if isLaptop then "mononoki 14" else "mononoki 20";
     theme = "phant";
-    extraConfig = {
+    settings = {
+      font = if isLaptop then "mononoki 14" else "mononoki 20";
       "display-run" = ">_";
     };
   };
