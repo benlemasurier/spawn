@@ -8,6 +8,7 @@
   imports = [
     ../common
     ./hardware-configuration.nix
+    ./fans.nix
   ];
 
   boot.initrd.luks.devices."luks-c50a894f-4c4e-4966-9ea5-62270bb86c5f" = {
