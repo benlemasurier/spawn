@@ -23,7 +23,7 @@ in
       };
       "bar/default" = {
         width = "100%";
-        height = if isLaptop then 25 else 50;
+        height = if isLaptop then 25 else 35;
         offset-x = 0;
         offset-y = 0;
         background = "\${colors.background}";
@@ -39,7 +39,7 @@ in
         padding-right = 1;
         module-margin-left = 1;
         module-margin-right = 1;
-        font-0 = if isLaptop then "mononoki:pixelsize=12;3" else "mononoki:pixelsize=12;3";
+        font-0 = if isLaptop then "mononoki:pixelsize=12;3" else "mononoki:pixelsize=15;4";
         font-1 = "Bitstream Vera Sans Mono:size=14:heavy:fontformat=truetype;";
         font-2 = "DejaVu Sans Mono:size=14:heavy:fontformat=truetype;3";
         font-3 =

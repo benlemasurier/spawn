@@ -14,6 +14,7 @@
     ./programs/dunst.nix
     ./programs/meshtastic.nix
     ./programs/firefox.nix
+    ./programs/ham.nix
     ./programs/khal.nix
     ./programs/polybar.nix
     ./programs/rofi
