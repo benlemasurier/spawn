@@ -31,7 +31,8 @@
     casks = [
       "signal"
     ];
-    onActivation.cleanup = "zap";
+    #onActivation.cleanup = "zap"; # uncomment when below is removed
+    onActivation.cleanup = "none"; # temporary fix, remove me
   };
 
   # macOS defaults
