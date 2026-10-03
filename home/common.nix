@@ -29,7 +29,7 @@
   };
 
   home.packages = with pkgs; [
-    silver-searcher
+    silver-searcher-ng
     ansible
     ansible-lint
     awscli2
@@ -56,6 +56,7 @@
     delve
     go
     go-critic
+    go-tools
     golangci-lint
     golines
     golint
@@ -82,6 +83,7 @@
     hurl
     isort
     jq
+    jfrog-cli
     k9s
     killall
     kind

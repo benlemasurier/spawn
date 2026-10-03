@@ -14,6 +14,7 @@
     ./programs/dunst.nix
     ./programs/meshtastic.nix
     ./programs/firefox.nix
+    ./programs/ham.nix
     ./programs/khal.nix
     ./programs/polybar.nix
     ./programs/rofi
@@ -38,6 +39,7 @@
     polybar-pulseaudio-control
     signal-desktop
     slack
+    speakeasy
     vanilla-dmz
     vlc
     xclip
@@ -46,6 +48,8 @@
   ];
 
   home.pointerCursor = {
+    enable = true;
+
     name = "Vanilla-DMZ-AA";
     size = 24;
     package = pkgs.vanilla-dmz;
@@ -118,7 +122,7 @@
     "Xft.hintstyle" = if hostname == "pine" then "hintslight" else "hintfull";
     "Xft.lcdfilter" = "lcddefault";
     "Xft.rgba" = "rgb";
-    "Xft.dpi" = if hostname == "pine" then 196 else 218;
+    "Xft.dpi" = if hostname == "pine" then 196 else 144;
 
     # special
     "*.foreground" = "#c5c8c6";

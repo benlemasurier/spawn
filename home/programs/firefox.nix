@@ -9,6 +9,9 @@
   programs.firefox = {
     enable = true;
 
+    # keep the legacy (pre-26.05) profile location
+    configPath = ".mozilla/firefox";
+
     package = pkgs.firefox.override { cfg.speechSynthesisSupport = false; };
     profiles.default.settings = {
       # compact ui: remove minimize, maximize, close buttons

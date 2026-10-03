@@ -15,4 +15,22 @@ final: prev: {
     ];
     installFlags = [ "PREFIX=$(out)" ];
   };
+
+  speakeasy = final.stdenv.mkDerivation rec {
+    pname = "speakeasy";
+    version = "1.761.8";
+
+    src = final.fetchzip {
+      url = "https://github.com/speakeasy-api/speakeasy/releases/download/v${version}/speakeasy_linux_amd64.zip";
+      hash = "sha256-CWiEdRvP1Wz3fErtwOYSfSeZCFIXzp/ag87RwvKn9gw=";
+      stripRoot = false;
+    };
+
+    nativeBuildInputs = [ final.autoPatchelfHook ];
+    buildInputs = [ final.stdenv.cc.cc.lib ];
+
+    installPhase = ''
+      install -Dm755 $src/speakeasy $out/bin/speakeasy
+    '';
+  };
 }

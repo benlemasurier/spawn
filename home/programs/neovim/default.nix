@@ -18,6 +18,9 @@
   programs.nixvim = {
     enable = true;
 
+    # the flake has nixvim follow our nixpkgs; say so explicitly
+    nixpkgs.source = inputs.nixpkgs;
+
     vimAlias = true;
     viAlias = true;
 

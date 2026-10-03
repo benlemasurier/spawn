@@ -1,5 +1,6 @@
-{ ... }: let
-  browser = ["firefox.desktop"];
+{ ... }:
+let
+  browser = [ "firefox.desktop" ];
 
   associations = {
     "text/html" = browser;
@@ -22,10 +23,15 @@
     #"application/pdf" = ["org.pwmt.zathura.desktop.desktop"];
   };
 
-in {
+in
+{
   xdg = {
     userDirs = {
       enable = true;
+
+      # defaults to true for state version < 26.05 and false otherwise
+      setSessionVariables = true;
+
       documents = "$HOME/documents";
       download = "$HOME/downloads";
       videos = "$HOME/vids";

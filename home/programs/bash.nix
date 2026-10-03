@@ -26,7 +26,7 @@
       tf = "terraform";
       ls = "eza";
       man = "batman";
-    } // lib.optionalAttrs pkgs.stdenv.isLinux {
+    } // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
       pbcopy = "xclip -selection clipboard";
     };
   };
