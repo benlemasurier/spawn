@@ -25,6 +25,7 @@
     asdbctl
     cc65
     feh
+    gcc # linux only, otherwise it shadows macOS `cc` and friends
     gdb
     higan
     i3lock

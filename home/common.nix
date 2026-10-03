@@ -45,7 +45,6 @@
     esphome
     eza
     file
-    gcc
     flex
     gdu
     ghc
