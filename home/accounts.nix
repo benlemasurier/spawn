@@ -47,7 +47,7 @@ in {
         userName = user;
         passwordCommand = "pass ${passPath}";
 
-        himalaya.enable = true;
+        #himalaya.enable = true;
 
         imap = {
           host = server;

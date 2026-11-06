@@ -76,7 +76,7 @@
       tags = [ "postgres" ];
     }))
     hadolint
-    himalaya
+    #himalaya
     htop
     httpie
     hurl
@@ -116,14 +116,14 @@
     step-cli
     terraform
     tree-sitter
-    ttf_bitstream_vera
+    ttf-bitstream-vera
     universal-ctags
     unzip
     uv
     vegeta
     vendir
     yq-go
-    zathura
+    #zathura
   ];
 
   home.file.".quiltrc" = {
